@@ -9,10 +9,10 @@
     "url": "/d/_xWi28Bnk/energikostnad-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T10:53:03Z",
-    "updated": "2022-03-11T11:15:14Z",
+    "updated": "2022-03-17T20:40:03Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 17,
+    "version": 18,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -1068,6 +1068,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Igår",
   "uid": "_xWi28Bnk",
-  "version": 17,
+  "version": 18,
   "weekStart": "monday"
 }
