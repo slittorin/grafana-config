@@ -9,10 +9,10 @@
     "url": "/d/xAkVDHL7k/effekt-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T14:35:40Z",
-    "updated": "2022-03-02T14:42:52Z",
+    "updated": "2022-03-17T20:41:26Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 2,
+    "version": 3,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -704,6 +704,6 @@
   "timezone": "browser",
   "title": "Effekt - Denna månad",
   "uid": "xAkVDHL7k",
-  "version": 2,
+  "version": 3,
   "weekStart": "monday"
 }
