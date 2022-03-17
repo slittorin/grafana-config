@@ -9,10 +9,10 @@
     "url": "/d/6F5jEUfnk/energimangd-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:27:46Z",
-    "updated": "2022-03-03T19:43:53Z",
+    "updated": "2022-03-11T11:05:26Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 12,
+    "version": 13,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -1491,6 +1491,6 @@
   "timezone": "browser",
   "title": "Energimängd - Denna månad",
   "uid": "6F5jEUfnk",
-  "version": 12,
+  "version": 13,
   "weekStart": "monday"
 }

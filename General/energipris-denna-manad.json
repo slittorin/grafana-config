@@ -5,14 +5,14 @@
     "canEdit": true,
     "canAdmin": true,
     "canStar": false,
-    "slug": "energikostnad-idag",
-    "url": "/d/5OFTMBB7k/energikostnad-idag",
+    "slug": "energipris-denna-manad",
+    "url": "/d/Li7PZ6L7z/energipris-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-02-22T18:48:34Z",
-    "updated": "2022-03-11T11:15:54Z",
+    "created": "2022-03-11T11:22:09Z",
+    "updated": "2022-03-11T12:05:43Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 42,
+    "version": 7,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 32,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -55,13 +55,13 @@
             "fixedColor": "red",
             "mode": "fixed"
           },
-          "decimals": 0,
+          "decimals": 1,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": null
               },
               {
@@ -70,17 +70,17 @@
               }
             ]
           },
-          "unit": "SEK"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 8,
+        "w": 4,
         "x": 0,
         "y": 0
       },
-      "id": 2,
+      "id": 26,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -102,11 +102,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Total kostnad intag av energi",
+      "title": "Max spotpris",
       "type": "stat"
     },
     {
@@ -116,7 +116,7 @@
             "fixedColor": "red",
             "mode": "fixed"
           },
-          "decimals": 2,
+          "decimals": 1,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
@@ -131,7 +131,68 @@
               }
             ]
           },
-          "unit": "SEK"
+          "unit": "öre/kWh"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 4,
+        "y": 0
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> mean()",
+          "refId": "A"
+        }
+      ],
+      "title": "Medel spotpris",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "red",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
@@ -141,7 +202,7 @@
         "x": 8,
         "y": 0
       },
-      "id": 12,
+      "id": 28,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -163,210 +224,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> min()",
           "refId": "A"
         }
       ],
-      "title": "Max kostnad/timme",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "orange",
-            "mode": "fixed"
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "orange",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "SEK"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 0,
-        "y": 3
-      },
-      "id": 11,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulationpump_heater_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> cumulativeSum()",
-          "refId": "A"
-        }
-      ],
-      "title": "Varav kostnad spabad",
-      "type": "stat"
-    },
-    {
-      "gridPos": {
-        "h": 3,
-        "w": 12,
-        "x": 8,
-        "y": 3
-      },
-      "id": 19,
-      "options": {
-        "content": " ",
-        "mode": "markdown"
-      },
-      "pluginVersion": "8.3.3",
-      "transparent": true,
-      "type": "text"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "green",
-            "mode": "fixed"
-          },
-          "decimals": 0,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "SEK"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 0,
-        "y": 6
-      },
-      "id": 4,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_total_return_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> cumulativeSum()",
-          "refId": "A"
-        }
-      ],
-      "title": "Totalt insparande (reduktion + intäkt) för solelsproduktion",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "green",
-            "mode": "fixed"
-          },
-          "decimals": 2,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "SEK"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 8,
-        "y": 6
-      },
-      "id": 15,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_total_return_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> max()",
-          "refId": "A"
-        }
-      ],
-      "title": "Max reduktion/timme",
+      "title": "Min spotpris",
       "type": "stat"
     },
     {
@@ -376,13 +238,13 @@
             "fixedColor": "blue",
             "mode": "fixed"
           },
-          "decimals": 0,
+          "decimals": 1,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": null
               },
               {
@@ -391,17 +253,17 @@
               }
             ]
           },
-          "unit": "SEK"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 8,
+        "w": 4,
         "x": 0,
-        "y": 9
+        "y": 3
       },
-      "id": 20,
+      "id": 29,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -423,11 +285,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_return_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Varav intäkt för solelsproduktion till nät",
+      "title": "Max elproduktionsbidrag",
       "type": "stat"
     },
     {
@@ -437,13 +299,13 @@
             "fixedColor": "blue",
             "mode": "fixed"
           },
-          "decimals": 2,
+          "decimals": 1,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "green",
+                "color": "red",
                 "value": null
               },
               {
@@ -452,17 +314,17 @@
               }
             ]
           },
-          "unit": "SEK"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 8,
-        "y": 9
+        "x": 4,
+        "y": 3
       },
-      "id": 21,
+      "id": 30,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -484,11 +346,72 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_return_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> mean()",
           "refId": "A"
         }
       ],
-      "title": "Max intäkt/timme",
+      "title": "Medel elproduktionsbidrag",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "blue",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "öre/kWh"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 3
+      },
+      "id": 31,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> min()",
+          "refId": "A"
+        }
+      ],
+      "title": "Medel elproduktionsbidrag",
       "type": "stat"
     },
     {
@@ -543,25 +466,13 @@
               }
             ]
           },
-          "unit": "SEK"
+          "unit": "öre/kWh"
         },
         "overrides": [
           {
             "matcher": {
               "id": "byName",
-              "options": "Time"
-            },
-            "properties": [
-              {
-                "id": "unit",
-                "value": "dateTimeAsSystem"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Kostnad"
+              "options": "Spotpris (max)"
             },
             "properties": [
               {
@@ -570,110 +481,53 @@
                   "fixedColor": "red",
                   "mode": "fixed"
                 }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Reduktion"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "green",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Kostnad spabad"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "orange",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Utetemperatur"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Utetemperatur"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
               },
               {
-                "id": "unit",
-                "value": "celsius"
+                "id": "custom.fillBelowTo",
+                "value": "Spotpris (min)"
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Intäkt solproduktion till nät"
+              "options": "Spotpris (medel)"
             },
             "properties": [
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Elproduktionsbidrag"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "purple",
+                  "fixedColor": "semi-dark-red",
                   "mode": "fixed"
                 }
               },
               {
-                "id": "custom.lineWidth",
-                "value": 4
+                "id": "custom.fillOpacity",
+                "value": 0
               },
               {
                 "id": "custom.lineStyle",
                 "value": {
                   "dash": [
-                    0,
+                    10,
                     10
                   ],
-                  "fill": "dot"
+                  "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Spotpris (min)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "light-red",
+                  "mode": "fixed"
                 }
               },
               {
@@ -685,33 +539,67 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Nordpool spotpris"
+              "options": "Elproduktionsbidrag (min)"
             },
             "properties": [
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "light-blue",
                   "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.lineWidth",
-                "value": 4
-              },
-              {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [
-                    0,
-                    10
-                  ],
-                  "fill": "dot"
                 }
               },
               {
                 "id": "custom.fillOpacity",
                 "value": 0
+              },
+              {
+                "id": "custom.fillBelowTo",
+                "value": "Elproduktionsbidrag (max)"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Elproduktionsbidrag (medel)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "dark-blue",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
+                "id": "custom.lineStyle",
+                "value": {
+                  "dash": [
+                    10,
+                    10
+                  ],
+                  "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Elproduktionsbidrag (max)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "blue",
+                  "mode": "fixed"
+                }
               }
             ]
           }
@@ -721,7 +609,7 @@
         "h": 10,
         "w": 20,
         "x": 0,
-        "y": 12
+        "y": 6
       },
       "id": 8,
       "options": {
@@ -742,34 +630,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Kostnad\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: true)",
-          "refId": "Kostnad"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulationpump_heater_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Kostnad spabad\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: false)",
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_total_return_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Reduktion\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: false)",
-          "refId": "Reduktion"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_return_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Intäkt solproduktion till nät\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (max)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: max, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -778,7 +639,16 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (medel)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: mean, createEmpty: true)",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (min)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: min, createEmpty: true)",
           "refId": "C"
         },
         {
@@ -787,15 +657,33 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"nordpool_kwh_se3_sek_3_10_0\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Nordpool spotpris\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (min)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: max, createEmpty: true)",
           "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (medel)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: mean, createEmpty: true)",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (max)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: min, createEmpty: true)",
+          "refId": "F"
         }
       ],
       "transformations": [],
       "type": "timeseries"
     }
   ],
-  "refresh": "15m",
+  "refresh": "",
   "schemaVersion": 34,
   "style": "dark",
   "tags": [],
@@ -803,8 +691,8 @@
     "list": []
   },
   "time": {
-    "from": "now/M",
-    "to": "now/M"
+    "from": "now/d",
+    "to": "now/d"
   },
   "timepicker": {
     "hidden": true,
@@ -822,8 +710,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energikostnad - Idag",
-  "uid": "5OFTMBB7k",
-  "version": 42,
+  "title": "Energipris - Denna månad",
+  "uid": "Li7PZ6L7z",
+  "version": 7,
   "weekStart": "monday"
 }
