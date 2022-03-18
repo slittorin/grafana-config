@@ -5,14 +5,14 @@
     "canEdit": true,
     "canAdmin": true,
     "canStar": false,
-    "slug": "energipris-denna-manad",
-    "url": "/d/Li7PZ6L7z/energipris-denna-manad",
+    "slug": "energipris-idag",
+    "url": "/d/xZyMF1P7z/energipris-idag",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-03-11T11:22:09Z",
-    "updated": "2022-03-18T13:14:40Z",
+    "created": "2022-03-18T13:18:46Z",
+    "updated": "2022-03-18T13:23:18Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 11,
+    "version": 4,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 32,
+  "id": 34,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -655,7 +655,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Spotpris (max)"
+              "options": "Spotpris"
             },
             "properties": [
               {
@@ -664,117 +664,13 @@
                   "fixedColor": "dark-red",
                   "mode": "fixed"
                 }
-              },
-              {
-                "id": "custom.fillBelowTo",
-                "value": "Spotpris (min)"
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Spotpris (medel)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "semi-dark-red",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              },
-              {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [
-                    10,
-                    10
-                  ],
-                  "fill": "dash"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Spotpris (min)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "light-red",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Elproduktionsbidrag (min)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "light-purple",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              },
-              {
-                "id": "custom.fillBelowTo",
-                "value": "Elproduktionsbidrag (max)"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Elproduktionsbidrag (medel)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "semi-dark-purple",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              },
-              {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [
-                    10,
-                    10
-                  ],
-                  "fill": "dash"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Elproduktionsbidrag (max)"
+              "options": "Elproduktionsbidrag"
             },
             "properties": [
               {
@@ -789,7 +685,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Elkostnad (max)"
+              "options": "Elkostnad"
             },
             "properties": [
               {
@@ -798,58 +694,6 @@
                   "fixedColor": "dark-yellow",
                   "mode": "fixed"
                 }
-              },
-              {
-                "id": "custom.fillBelowTo",
-                "value": "Elkostnad (min)"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Elkostnad (medel)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "semi-dark-yellow",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              },
-              {
-                "id": "custom.lineStyle",
-                "value": {
-                  "dash": [
-                    10,
-                    10
-                  ],
-                  "fill": "dash"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Elkostnad (min)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "light-yellow",
-                  "mode": "fixed"
-                }
-              },
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
               }
             ]
           }
@@ -880,7 +724,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (max)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -889,25 +733,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (medel)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: mean, createEmpty: true)",
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (min)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: min, createEmpty: true)",
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (max)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)",
           "refId": "F"
         },
         {
@@ -916,44 +742,8 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (medel)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: mean, createEmpty: true)",
-          "refId": "E"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (min)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: max, createEmpty: true)",
-          "refId": "D"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_distribution_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkostnad (max)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: max, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_distribution_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkostnad\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: false)",
           "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_distribution_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkostnad (medel)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: mean, createEmpty: false)",
-          "refId": "H"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_distribution_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkostnad (min)\",\r\n }))\r\n |> aggregateWindow(every: 6h, fn: min, createEmpty: false)",
-          "refId": "I"
         }
       ],
       "transformations": [],
@@ -968,8 +758,8 @@
     "list": []
   },
   "time": {
-    "from": "now/d",
-    "to": "now/d"
+    "from": "now/M",
+    "to": "now/M"
   },
   "timepicker": {
     "hidden": true,
@@ -987,8 +777,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energipris - Denna månad",
-  "uid": "Li7PZ6L7z",
-  "version": 11,
+  "title": "Energipris - Idag",
+  "uid": "xZyMF1P7z",
+  "version": 4,
   "weekStart": "monday"
 }

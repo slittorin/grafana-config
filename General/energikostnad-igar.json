@@ -9,10 +9,10 @@
     "url": "/d/_xWi28Bnk/energikostnad-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T10:53:03Z",
-    "updated": "2022-03-17T20:40:03Z",
+    "updated": "2022-03-18T13:05:54Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 18,
+    "version": 20,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -929,7 +929,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Nordpool spotpris"
+              "options": "Elkostnad"
             },
             "properties": [
               {
@@ -938,6 +938,10 @@
                   "fixedColor": "yellow",
                   "mode": "fixed"
                 }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
               },
               {
                 "id": "custom.lineWidth",
@@ -952,10 +956,6 @@
                   ],
                   "fill": "dot"
                 }
-              },
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
               }
             ]
           }
@@ -1022,7 +1022,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary_sek_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)",
           "refId": "C"
         },
         {
@@ -1031,7 +1031,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"nordpool_kwh_se3_sek_3_10_0\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Nordpool spotpris\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_distribution_consumption_rate_summary_sek_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkostnad\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)",
           "refId": "D"
         }
       ],
@@ -1068,6 +1068,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Igår",
   "uid": "_xWi28Bnk",
-  "version": 18,
+  "version": 20,
   "weekStart": "monday"
 }

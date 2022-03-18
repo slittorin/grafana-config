@@ -5,14 +5,14 @@
     "canEdit": true,
     "canAdmin": true,
     "canStar": false,
-    "slug": "energipris-denna-manad",
-    "url": "/d/Li7PZ6L7z/energipris-denna-manad",
+    "slug": "energipris-forra-manaden",
+    "url": "/d/nBajOJE7z/energipris-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-03-11T11:22:09Z",
-    "updated": "2022-03-18T13:14:40Z",
+    "created": "2022-03-18T13:14:53Z",
+    "updated": "2022-03-18T13:14:53Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 11,
+    "version": 1,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -44,7 +44,8 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 32,
+  "hideControls": false,
+  "id": 33,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -968,8 +969,8 @@
     "list": []
   },
   "time": {
-    "from": "now/d",
-    "to": "now/d"
+    "from": "now/M",
+    "to": "now/M"
   },
   "timepicker": {
     "hidden": true,
@@ -987,8 +988,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energipris - Denna månad",
-  "uid": "Li7PZ6L7z",
-  "version": 11,
+  "title": "Energipris - Förra månaden",
+  "uid": "nBajOJE7z",
+  "version": 1,
   "weekStart": "monday"
 }
