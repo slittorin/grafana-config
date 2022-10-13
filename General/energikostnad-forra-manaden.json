@@ -9,10 +9,10 @@
     "url": "/d/0zUPhUfnz/energikostnad-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T11:04:20Z",
-    "updated": "2022-03-04T07:58:00Z",
+    "updated": "2022-10-13T18:12:13Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 8,
+    "version": 14,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -411,7 +411,7 @@
           "refId": "A"
         }
       ],
-      "title": "Max kostnad spabad/dag",
+      "title": "Max kostnad/dag",
       "type": "stat"
     },
     {
@@ -472,7 +472,7 @@
           "refId": "A"
         }
       ],
-      "title": "Medel kostnad spabad/dag",
+      "title": "Medel kostnad/dag",
       "type": "stat"
     },
     {
@@ -533,8 +533,146 @@
           "refId": "A"
         }
       ],
-      "title": "Min kostnad spabad/dag",
+      "title": "Min kostnad/dag",
       "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "super-light-orange",
+            "mode": "fixed"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "SEK"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 0,
+        "y": 6
+      },
+      "id": 25,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> cumulativeSum()",
+          "refId": "A"
+        }
+      ],
+      "title": "Varav kostnad elbilsladdning",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "super-light-orange",
+            "mode": "fixed"
+          },
+          "decimals": 2,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "SEK"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 6
+      },
+      "id": 26,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 24h, fn: sum)\r\n |> max()",
+          "refId": "A"
+        }
+      ],
+      "title": "Max kostnad/dag",
+      "type": "stat"
+    },
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 12,
+        "y": 6
+      },
+      "id": 28,
+      "options": {
+        "content": "",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.3.3",
+      "transparent": true,
+      "type": "text"
     },
     {
       "fieldConfig": {
@@ -566,7 +704,7 @@
         "h": 3,
         "w": 8,
         "x": 0,
-        "y": 6
+        "y": 9
       },
       "id": 4,
       "options": {
@@ -627,7 +765,7 @@
         "h": 3,
         "w": 4,
         "x": 8,
-        "y": 6
+        "y": 9
       },
       "id": 15,
       "options": {
@@ -688,7 +826,7 @@
         "h": 3,
         "w": 4,
         "x": 12,
-        "y": 6
+        "y": 9
       },
       "id": 17,
       "options": {
@@ -749,7 +887,7 @@
         "h": 3,
         "w": 4,
         "x": 16,
-        "y": 6
+        "y": 9
       },
       "id": 20,
       "options": {
@@ -810,7 +948,7 @@
         "h": 3,
         "w": 8,
         "x": 0,
-        "y": 9
+        "y": 12
       },
       "id": 21,
       "options": {
@@ -871,7 +1009,7 @@
         "h": 3,
         "w": 4,
         "x": 8,
-        "y": 9
+        "y": 12
       },
       "id": 22,
       "options": {
@@ -932,7 +1070,7 @@
         "h": 3,
         "w": 4,
         "x": 12,
-        "y": 9
+        "y": 12
       },
       "id": 23,
       "options": {
@@ -993,7 +1131,7 @@
         "h": 3,
         "w": 4,
         "x": 16,
-        "y": 9
+        "y": 12
       },
       "id": 24,
       "options": {
@@ -1150,6 +1288,21 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Elbilsladdning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
           }
         ]
       },
@@ -1157,7 +1310,7 @@
         "h": 10,
         "w": 20,
         "x": 0,
-        "y": 12
+        "y": 15
       },
       "id": 8,
       "options": {
@@ -1189,6 +1342,15 @@
           "hide": false,
           "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulationpump_heater_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Kostnad spabad\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
+          "refId": "C"
         },
         {
           "datasource": {
@@ -1250,6 +1412,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Förra månaden",
   "uid": "0zUPhUfnz",
-  "version": 8,
+  "version": 14,
   "weekStart": "monday"
 }

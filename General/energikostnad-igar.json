@@ -9,10 +9,10 @@
     "url": "/d/_xWi28Bnk/energikostnad-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T10:53:03Z",
-    "updated": "2022-03-18T13:05:54Z",
+    "updated": "2022-10-13T17:57:44Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 20,
+    "version": 22,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -373,6 +373,83 @@
       "fieldConfig": {
         "defaults": {
           "color": {
+            "fixedColor": "super-light-orange",
+            "mode": "fixed"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "orange",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "SEK"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 0,
+        "y": 6
+      },
+      "id": 24,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> cumulativeSum()",
+          "refId": "A"
+        }
+      ],
+      "title": "Varav kostnad elbilsladdning",
+      "type": "stat"
+    },
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 12,
+        "x": 8,
+        "y": 6
+      },
+      "id": 25,
+      "options": {
+        "content": " ",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.3.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
             "fixedColor": "green",
             "mode": "fixed"
           },
@@ -399,7 +476,7 @@
         "h": 3,
         "w": 8,
         "x": 0,
-        "y": 6
+        "y": 9
       },
       "id": 4,
       "options": {
@@ -460,7 +537,7 @@
         "h": 3,
         "w": 4,
         "x": 8,
-        "y": 6
+        "y": 9
       },
       "id": 15,
       "options": {
@@ -521,7 +598,7 @@
         "h": 3,
         "w": 4,
         "x": 12,
-        "y": 6
+        "y": 9
       },
       "id": 20,
       "options": {
@@ -582,7 +659,7 @@
         "h": 3,
         "w": 8,
         "x": 0,
-        "y": 9
+        "y": 12
       },
       "id": 21,
       "options": {
@@ -643,7 +720,7 @@
         "h": 3,
         "w": 4,
         "x": 8,
-        "y": 9
+        "y": 12
       },
       "id": 22,
       "options": {
@@ -704,7 +781,7 @@
         "h": 3,
         "w": 4,
         "x": 12,
-        "y": 9
+        "y": 12
       },
       "id": 23,
       "options": {
@@ -958,6 +1035,21 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Elbilsladdning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
           }
         ]
       },
@@ -965,7 +1057,7 @@
         "h": 10,
         "w": 20,
         "x": 0,
-        "y": 12
+        "y": 15
       },
       "id": 8,
       "options": {
@@ -997,6 +1089,15 @@
           "hide": false,
           "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulationpump_heater_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Kostnad spabad\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: false)",
           "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)",
+          "refId": "E"
         },
         {
           "datasource": {
@@ -1068,6 +1169,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Igår",
   "uid": "_xWi28Bnk",
-  "version": 20,
+  "version": 22,
   "weekStart": "monday"
 }
