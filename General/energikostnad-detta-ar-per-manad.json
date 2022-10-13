@@ -9,10 +9,10 @@
     "url": "/d/_UmfEEBnk/energikostnad-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-23T18:44:12Z",
-    "updated": "2022-10-13T18:41:06Z",
+    "updated": "2022-10-13T18:43:43Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 22,
+    "version": 23,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -1489,7 +1489,7 @@
     "to": "now/M"
   },
   "timepicker": {
-    "hidden": false,
+    "hidden": true,
     "refresh_intervals": [
       "5s",
       "10s",
@@ -1506,6 +1506,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Detta år per månad",
   "uid": "_UmfEEBnk",
-  "version": 22,
+  "version": 23,
   "weekStart": "monday"
 }
