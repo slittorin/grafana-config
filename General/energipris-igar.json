@@ -9,10 +9,10 @@
     "url": "/d/UVA2K1P7z/energipris-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-18T13:24:07Z",
-    "updated": "2022-05-17T08:37:21Z",
+    "updated": "2022-10-13T11:25:43Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 5,
+    "version": 6,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -676,7 +676,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "dark-purple",
+                  "fixedColor": "dark-blue",
                   "mode": "fixed"
                 }
               }
@@ -685,7 +685,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Elkostnad"
+              "options": "Elkonsumptionsavgift"
             },
             "properties": [
               {
@@ -779,6 +779,6 @@
   "timezone": "browser",
   "title": "Energipris - Igår",
   "uid": "UVA2K1P7z",
-  "version": 5,
+  "version": 6,
   "weekStart": "monday"
 }

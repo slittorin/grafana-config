@@ -9,10 +9,10 @@
     "url": "/d/nBajOJE7z/energipris-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-18T13:14:53Z",
-    "updated": "2022-05-17T08:35:40Z",
+    "updated": "2022-10-13T11:30:51Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 5,
+    "version": 6,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -709,7 +709,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-red",
+                  "fixedColor": "dark-red",
                   "mode": "fixed"
                 }
               },
@@ -728,7 +728,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-purple",
+                  "fixedColor": "dark-blue",
                   "mode": "fixed"
                 }
               },
@@ -751,7 +751,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "semi-dark-purple",
+                  "fixedColor": "dark-blue",
                   "mode": "fixed"
                 }
               },
@@ -780,7 +780,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "dark-purple",
+                  "fixedColor": "dark-blue",
                   "mode": "fixed"
                 }
               }
@@ -789,7 +789,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Elkostnad (max)"
+              "options": "Elkonsumptionsavgift (max)"
             },
             "properties": [
               {
@@ -808,7 +808,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Elkostnad (medel)"
+              "options": "Elkonsumptionsavgift (medel)"
             },
             "properties": [
               {
@@ -837,7 +837,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Elkostnad (min)"
+              "options": "Elkonsumptionsavgift (min)"
             },
             "properties": [
               {
@@ -989,6 +989,6 @@
   "timezone": "browser",
   "title": "Energipris - Förra månaden",
   "uid": "nBajOJE7z",
-  "version": 5,
+  "version": 6,
   "weekStart": "monday"
 }

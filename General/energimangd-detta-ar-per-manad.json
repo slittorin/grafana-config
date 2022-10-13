@@ -9,10 +9,10 @@
     "url": "/d/zja-8UBnz/energimangd-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:57:23Z",
-    "updated": "2022-03-04T07:30:41Z",
+    "updated": "2022-10-13T12:33:07Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 8,
+    "version": 10,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -538,7 +538,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-red",
+            "fixedColor": "super-light-orange",
             "mode": "fixed"
           },
           "mappings": [],
@@ -564,6 +564,267 @@
         "w": 8,
         "x": 0,
         "y": 6
+      },
+      "id": 35,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> cumulativeSum()",
+          "refId": "A"
+        }
+      ],
+      "title": "Varav energimängd elbilsladdning",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "super-light-orange",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 8,
+        "y": 6
+      },
+      "id": 36,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1M, fn: sum, createEmpty: true)\r\n |> max()",
+          "refId": "A"
+        }
+      ],
+      "title": "Max energimängd/månad",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 12,
+        "y": 6
+      },
+      "id": 38,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 6
+      },
+      "id": 39,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single"
+        }
+      },
+      "type": "timeseries"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-red",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
+        "x": 0,
+        "y": 9
       },
       "id": 2,
       "options": {
@@ -624,7 +885,7 @@
         "h": 3,
         "w": 4,
         "x": 8,
-        "y": 6
+        "y": 9
       },
       "id": 12,
       "options": {
@@ -685,7 +946,7 @@
         "h": 3,
         "w": 4,
         "x": 12,
-        "y": 6
+        "y": 9
       },
       "id": 13,
       "options": {
@@ -746,7 +1007,7 @@
         "h": 3,
         "w": 4,
         "x": 16,
-        "y": 6
+        "y": 9
       },
       "id": 14,
       "options": {
@@ -806,7 +1067,7 @@
         "h": 3,
         "w": 8,
         "x": 0,
-        "y": 9
+        "y": 12
       },
       "id": 4,
       "options": {
@@ -867,7 +1128,7 @@
         "h": 3,
         "w": 4,
         "x": 8,
-        "y": 9
+        "y": 12
       },
       "id": 15,
       "options": {
@@ -928,7 +1189,7 @@
         "h": 3,
         "w": 4,
         "x": 12,
-        "y": 9
+        "y": 12
       },
       "id": 21,
       "options": {
@@ -989,7 +1250,7 @@
         "h": 3,
         "w": 4,
         "x": 16,
-        "y": 9
+        "y": 12
       },
       "id": 25,
       "options": {
@@ -1049,7 +1310,7 @@
         "h": 3,
         "w": 8,
         "x": 0,
-        "y": 12
+        "y": 15
       },
       "id": 22,
       "options": {
@@ -1110,7 +1371,7 @@
         "h": 3,
         "w": 4,
         "x": 8,
-        "y": 12
+        "y": 15
       },
       "id": 23,
       "options": {
@@ -1171,7 +1432,7 @@
         "h": 3,
         "w": 4,
         "x": 12,
-        "y": 12
+        "y": 15
       },
       "id": 24,
       "options": {
@@ -1232,7 +1493,7 @@
         "h": 3,
         "w": 4,
         "x": 16,
-        "y": 12
+        "y": 15
       },
       "id": 26,
       "options": {
@@ -1480,6 +1741,12 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName"
+            },
+            "properties": []
           }
         ]
       },
@@ -1487,7 +1754,7 @@
         "h": 10,
         "w": 20,
         "x": 0,
-        "y": 15
+        "y": 18
       },
       "id": 8,
       "options": {
@@ -1519,6 +1786,15 @@
           "hide": false,
           "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Solproduktion\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: sum, createEmpty: false)",
           "refId": "Reduktion"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: sum, createEmpty: false)",
+          "refId": "D"
         },
         {
           "datasource": {
@@ -1581,6 +1857,6 @@
   "timezone": "browser",
   "title": "Energimängd - Detta år per månad",
   "uid": "zja-8UBnz",
-  "version": 8,
+  "version": 10,
   "weekStart": "monday"
 }

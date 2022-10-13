@@ -9,10 +9,10 @@
     "url": "/d/Li7PZ6L7z/energipris-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-11T11:22:09Z",
-    "updated": "2022-05-17T08:34:53Z",
+    "updated": "2022-10-13T11:32:19Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 16,
+    "version": 20,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -710,7 +710,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-red",
+                  "fixedColor": "dark-red",
                   "mode": "fixed"
                 }
               },
@@ -729,7 +729,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-purple",
+                  "fixedColor": "dark-blue",
                   "mode": "fixed"
                 }
               },
@@ -752,7 +752,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "semi-dark-purple",
+                  "fixedColor": "dark-blue",
                   "mode": "fixed"
                 }
               },
@@ -781,7 +781,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "dark-purple",
+                  "fixedColor": "dark-blue",
                   "mode": "fixed"
                 }
               }
@@ -790,7 +790,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Elkostnad (max)"
+              "options": "Elkonsumptionsavgift (max)"
             },
             "properties": [
               {
@@ -802,14 +802,14 @@
               },
               {
                 "id": "custom.fillBelowTo",
-                "value": "Elkostnad (min)"
+                "value": "Elkonsumptionsavgift (medel)"
               }
             ]
           },
           {
             "matcher": {
               "id": "byName",
-              "options": "Elkostnad (medel)"
+              "options": "Elkonsumptionsavgift (medel)"
             },
             "properties": [
               {
@@ -838,7 +838,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Elkostnad (min)"
+              "options": "Elkonsumptionsavgift (min)"
             },
             "properties": [
               {
@@ -990,6 +990,6 @@
   "timezone": "browser",
   "title": "Energipris - Denna månad",
   "uid": "Li7PZ6L7z",
-  "version": 16,
+  "version": 20,
   "weekStart": "monday"
 }
