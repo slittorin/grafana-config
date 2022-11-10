@@ -9,10 +9,10 @@
     "url": "/d/4L0XW5I4k/elbilsladdning-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-10-13T19:02:03Z",
-    "updated": "2022-10-13T19:03:06Z",
+    "updated": "2022-11-10T12:04:54Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 2,
+    "version": 6,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -101,7 +101,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -162,133 +162,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max energimängd/timme",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "super-light-orange",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 12,
-        "y": 0
-      },
-      "id": 27,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> mean()",
-          "refId": "A"
-        }
-      ],
-      "title": "Medel energimängd/timme",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "super-light-orange",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 16,
-        "y": 0
-      },
-      "id": 28,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> min()",
-          "refId": "A"
-        }
-      ],
-      "title": "Min energimängd/timme",
+      "title": "Max energimängd/dag",
       "type": "stat"
     },
     {
@@ -344,7 +222,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -405,133 +283,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max energikostnad/timme",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "semi-dark-red",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "currencySEK"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 12,
-        "y": 3
-      },
-      "id": 30,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> mean()",
-          "refId": "A"
-        }
-      ],
-      "title": "Medel energikostnad/timme",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "semi-dark-red",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "currencySEK"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 16,
-        "y": 3
-      },
-      "id": 31,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: sum)\r\n |> min()",
-          "refId": "A"
-        }
-      ],
-      "title": "Minenergikostnad/timme",
+      "title": "Max energikostnad/dag",
       "type": "stat"
     },
     {
@@ -553,7 +309,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "smooth",
+            "lineInterpolation": "stepAfter",
             "lineStyle": {
               "fill": "solid"
             },
@@ -662,7 +418,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -671,7 +427,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Kostnad för elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Kostnad för elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)",
           "refId": "Kostnad"
         }
       ],
@@ -708,6 +464,6 @@
   "timezone": "browser",
   "title": "Elbilsladdning - Förra månaden",
   "uid": "4L0XW5I4k",
-  "version": 2,
+  "version": 6,
   "weekStart": "monday"
 }

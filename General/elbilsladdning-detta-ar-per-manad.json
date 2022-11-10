@@ -5,14 +5,14 @@
     "canEdit": true,
     "canAdmin": true,
     "canStar": false,
-    "slug": "energipris-igar",
-    "url": "/d/UVA2K1P7z/energipris-igar",
+    "slug": "elbilsladdning-detta-ar-per-manad",
+    "url": "/d/2pUWt-IVz/elbilsladdning-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-03-18T13:24:07Z",
-    "updated": "2022-10-16T13:55:20Z",
+    "created": "2022-10-16T14:58:31Z",
+    "updated": "2022-11-10T12:11:57Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 7,
+    "version": 5,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 35,
+  "id": 43,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -52,16 +52,15 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "dark-yellow",
+            "fixedColor": "super-light-orange",
             "mode": "fixed"
           },
-          "decimals": 1,
           "mappings": [],
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
-                "color": "red",
+                "color": "green",
                 "value": null
               },
               {
@@ -70,17 +69,17 @@
               }
             ]
           },
-          "unit": "öre/kWh"
+          "unit": "kwatth"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
+        "w": 8,
         "x": 0,
         "y": 0
       },
-      "id": 32,
+      "id": 24,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -102,18 +101,18 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
-      "title": "Max elkonsumptionsavgift",
+      "title": "Total energimängd använt av elbilsladdare",
       "type": "stat"
     },
     {
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "dark-yellow",
+            "fixedColor": "super-light-orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -131,68 +130,7 @@
               }
             ]
           },
-          "unit": "öre/kWh"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 4,
-        "y": 0
-      },
-      "id": 33,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> mean()",
-          "refId": "A"
-        }
-      ],
-      "title": "Medel elkonsumptionsavgift",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "dark-yellow",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "öre/kWh"
+          "unit": "kwatth"
         },
         "overrides": []
       },
@@ -202,7 +140,7 @@
         "x": 8,
         "y": 0
       },
-      "id": 34,
+      "id": 25,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -224,18 +162,18 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Min elkonsumptionsavgift",
+      "title": "Max energimängd/månad",
       "type": "stat"
     },
     {
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "red",
+            "fixedColor": "super-light-orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -253,13 +191,134 @@
               }
             ]
           },
-          "unit": "öre/kWh"
+          "unit": "kwatth"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "id": 27,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> mean()",
+          "refId": "A"
+        }
+      ],
+      "title": "Medel energimängd/månad",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "super-light-orange",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "id": 28,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> min()",
+          "refId": "A"
+        }
+      ],
+      "title": "Min energimängd/månad",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "semi-dark-red",
+            "mode": "fixed"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "currencySEK"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 8,
         "x": 0,
         "y": 3
       },
@@ -285,18 +344,18 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
-      "title": "Max spotpris",
+      "title": "Total kostnad för elbilsladdning (utan Tibber-reduktion)",
       "type": "stat"
     },
     {
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "red",
+            "fixedColor": "semi-dark-red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -314,68 +373,7 @@
               }
             ]
           },
-          "unit": "öre/kWh"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 4,
-        "y": 3
-      },
-      "id": 27,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> mean()",
-          "refId": "A"
-        }
-      ],
-      "title": "Medel spotpris",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "red",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "öre/kWh"
+          "unit": "currencySEK"
         },
         "overrides": []
       },
@@ -384,67 +382,6 @@
         "w": 4,
         "x": 8,
         "y": 3
-      },
-      "id": 28,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> min()",
-          "refId": "A"
-        }
-      ],
-      "title": "Min spotpris",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "blue",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "öre/kWh"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 0,
-        "y": 6
       },
       "id": 29,
       "options": {
@@ -468,18 +405,18 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max elproduktionsbidrag",
+      "title": "Max kostnad/månad",
       "type": "stat"
     },
     {
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "blue",
+            "fixedColor": "semi-dark-red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -497,15 +434,15 @@
               }
             ]
           },
-          "unit": "öre/kWh"
+          "unit": "currencySEK"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 4,
-        "y": 6
+        "x": 12,
+        "y": 3
       },
       "id": 30,
       "options": {
@@ -529,18 +466,18 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
-      "title": "Medel elproduktionsbidrag",
+      "title": "Medel kostnad/månad",
       "type": "stat"
     },
     {
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "blue",
+            "fixedColor": "semi-dark-red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -558,15 +495,15 @@
               }
             ]
           },
-          "unit": "öre/kWh"
+          "unit": "currencySEK"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 8,
-        "y": 6
+        "x": 16,
+        "y": 3
       },
       "id": 31,
       "options": {
@@ -590,11 +527,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
-      "title": "Medel elproduktionsbidrag",
+      "title": "Min kostnad/månad",
       "type": "stat"
     },
     {
@@ -608,7 +545,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": 0,
-            "drawStyle": "line",
+            "drawStyle": "bars",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -649,19 +586,35 @@
               }
             ]
           },
-          "unit": "öre/kWh"
+          "unit": "kwatth"
         },
         "overrides": [
           {
             "matcher": {
               "id": "byName",
-              "options": "Spotpris"
+              "options": "Kostnad för elbilsladdning"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "currencySEK"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Kostnad för elbilsladdning"
             },
             "properties": [
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "dark-red",
+                  "fixedColor": "semi-dark-red",
                   "mode": "fixed"
                 }
               }
@@ -670,28 +623,13 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Elproduktionsbidrag"
+              "options": "Elbilsladdning"
             },
             "properties": [
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "dark-blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Elkonsumptionsavgift"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "dark-yellow",
+                  "fixedColor": "super-light-orange",
                   "mode": "fixed"
                 }
               }
@@ -703,7 +641,7 @@
         "h": 10,
         "w": 20,
         "x": 0,
-        "y": 9
+        "y": 6
       },
       "id": 8,
       "options": {
@@ -724,7 +662,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -733,24 +671,15 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: false)",
-          "refId": "G"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)",
-          "refId": "F"
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Kostnad för elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)",
+          "refId": "Kostnad"
         }
       ],
       "transformations": [],
       "type": "timeseries"
     }
   ],
-  "refresh": "",
+  "refresh": false,
   "schemaVersion": 34,
   "style": "dark",
   "tags": [],
@@ -777,8 +706,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energipris - Igår",
-  "uid": "UVA2K1P7z",
-  "version": 7,
+  "title": "Elbilsladdning - Detta år per månad",
+  "uid": "2pUWt-IVz",
+  "version": 5,
   "weekStart": "monday"
 }

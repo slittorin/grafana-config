@@ -5,14 +5,14 @@
     "canEdit": true,
     "canAdmin": true,
     "canStar": false,
-    "slug": "elbilsladdning-idag",
-    "url": "/d/MParoDIVz/elbilsladdning-idag",
+    "slug": "elbilsladdning-detta-ar-per-dag",
+    "url": "/d/9z98c-IVz/elbilsladdning-detta-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-10-12T18:34:39Z",
-    "updated": "2022-11-10T12:09:20Z",
+    "created": "2022-10-16T14:52:35Z",
+    "updated": "2022-11-10T12:06:36Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 9,
+    "version": 4,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 38,
+  "id": 42,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -101,7 +101,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -162,11 +162,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max energimängd/timme",
+      "title": "Max energimängd/dag",
       "type": "stat"
     },
     {
@@ -222,7 +222,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -261,7 +261,7 @@
         "x": 8,
         "y": 3
       },
-      "id": 27,
+      "id": 29,
       "options": {
         "colorMode": "value",
         "graphMode": "none",
@@ -283,11 +283,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max kostnad/timme",
+      "title": "Max energikostnad/dag",
       "type": "stat"
     },
     {
@@ -300,8 +300,8 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
+            "barAlignment": 1,
+            "drawStyle": "bars",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -418,7 +418,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> timeShift(duration: -2h)\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -427,7 +427,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Kostnad för elbilsladdning\",\r\n }))\r\n |> timeShift(duration: -2h)\r\n |> aggregateWindow(every: 15m, fn: sum, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Kostnad för elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)",
           "refId": "Kostnad"
         }
       ],
@@ -462,8 +462,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Elbilsladdning - Idag",
-  "uid": "MParoDIVz",
-  "version": 9,
+  "title": "Elbilsladdning - Detta år per dag",
+  "uid": "9z98c-IVz",
+  "version": 4,
   "weekStart": "monday"
 }

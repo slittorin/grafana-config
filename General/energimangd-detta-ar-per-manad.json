@@ -9,10 +9,10 @@
     "url": "/d/zja-8UBnz/energimangd-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:57:23Z",
-    "updated": "2022-10-13T18:34:25Z",
+    "updated": "2022-11-10T12:19:46Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 18,
+    "version": 21,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -101,7 +101,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1d, fn: sum)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -162,7 +162,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -223,7 +223,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
@@ -284,7 +284,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
@@ -344,7 +344,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1d, fn: sum)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -405,7 +405,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -466,7 +466,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
@@ -527,7 +527,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
@@ -587,7 +587,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1d, fn: sum)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -648,7 +648,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -658,7 +658,7 @@
     {
       "gridPos": {
         "h": 3,
-        "w": 8,
+        "w": 4,
         "x": 12,
         "y": 6
       },
@@ -724,7 +724,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1d, fn: sum)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -785,7 +785,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -846,72 +846,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
       "title": "Medel energimängd/månad",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "light-red",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "red",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 16,
-        "y": 9
-      },
-      "id": 14,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> min()",
-          "refId": "A"
-        }
-      ],
-      "title": "Min energimängd/månad",
       "type": "stat"
     },
     {
@@ -967,7 +906,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1d, fn: sum)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -1028,7 +967,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -1089,72 +1028,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
       "title": "Medel energimängd/månad",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "green",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 16,
-        "y": 12
-      },
-      "id": 25,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> min()",
-          "refId": "A"
-        }
-      ],
-      "title": "Min energimängd/månad",
       "type": "stat"
     },
     {
@@ -1210,7 +1088,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1d, fn: sum)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -1271,7 +1149,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -1332,72 +1210,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
       "title": "Medel energmängd/månad",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "blue",
-            "mode": "fixed"
-          },
-          "decimals": 1,
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 4,
-        "x": 16,
-        "y": 15
-      },
-      "id": 26,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> min()",
-          "refId": "A"
-        }
-      ],
-      "title": "Min energmängd/månad",
       "type": "stat"
     },
     {
@@ -1419,7 +1236,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "smooth",
+            "lineInterpolation": "stepBefore",
             "lineStyle": {
               "fill": "solid"
             },
@@ -1651,6 +1468,6 @@
   "timezone": "browser",
   "title": "Energimängd - Detta år per månad",
   "uid": "zja-8UBnz",
-  "version": 18,
+  "version": 21,
   "weekStart": "monday"
 }

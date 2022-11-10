@@ -9,10 +9,10 @@
     "url": "/d/8wTfKJE7k/energipris-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-18T13:27:23Z",
-    "updated": "2022-10-13T11:33:50Z",
+    "updated": "2022-10-16T14:02:55Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 7,
+    "version": 8,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -616,7 +616,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "smooth",
+            "lineInterpolation": "stepBefore",
             "lineStyle": {
               "fill": "solid"
             },
@@ -880,34 +880,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (max)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)",
-          "refId": "B"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (medel)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)",
-          "refId": "A"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (min)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)",
-          "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (max)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (max)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)",
           "refId": "F"
         },
         {
@@ -916,7 +889,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (medel)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (medel)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)",
           "refId": "E"
         },
         {
@@ -925,7 +898,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (min)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Elproduktionsbidrag (min)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)",
           "refId": "D"
         },
         {
@@ -934,7 +907,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift (max)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift (max)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: false)",
           "refId": "G"
         },
         {
@@ -943,7 +916,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift (medel)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift (medel)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)",
           "refId": "H"
         },
         {
@@ -952,8 +925,35 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift (min)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift (min)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: false)",
           "refId": "I"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (max)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (medel)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Spotpris (min)\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)",
+          "refId": "C"
         }
       ],
       "transformations": [],
@@ -989,6 +989,6 @@
   "timezone": "browser",
   "title": "Energipris - År per dag",
   "uid": "8wTfKJE7k",
-  "version": 7,
+  "version": 8,
   "weekStart": "monday"
 }

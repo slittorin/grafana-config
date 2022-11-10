@@ -9,10 +9,10 @@
     "url": "/d/jCkxNHY7z/effekt-idag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T14:24:46Z",
-    "updated": "2022-03-04T16:19:17Z",
+    "updated": "2022-10-14T16:27:57Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 3,
+    "version": 7,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -487,7 +487,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "smooth",
+            "lineInterpolation": "stepAfter",
             "lineStyle": {
               "fill": "solid"
             },
@@ -773,6 +773,6 @@
   "timezone": "browser",
   "title": "Effekt - Idag",
   "uid": "jCkxNHY7z",
-  "version": 3,
+  "version": 7,
   "weekStart": "monday"
 }
