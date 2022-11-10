@@ -9,10 +9,10 @@
     "url": "/d/m6URONLnk/effekt-senaste-6-timmarna",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T14:50:16Z",
-    "updated": "2022-03-04T16:12:40Z",
+    "updated": "2022-11-10T14:01:42Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 7,
+    "version": 8,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -225,7 +225,7 @@
           "refId": "A"
         }
       ],
-      "title": "Mineffekt",
+      "title": "Min effekt",
       "type": "stat"
     },
     {
@@ -773,6 +773,6 @@
   "timezone": "browser",
   "title": "Effekt - Senaste 6 timmarna",
   "uid": "m6URONLnk",
-  "version": 7,
+  "version": 8,
   "weekStart": "monday"
 }

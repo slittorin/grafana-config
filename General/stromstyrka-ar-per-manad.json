@@ -9,10 +9,10 @@
     "url": "/d/XVT2YtL7z/stromstyrka-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:46:12Z",
-    "updated": "2022-03-04T16:47:16Z",
+    "updated": "2022-11-10T14:41:37Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 2,
+    "version": 4,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -791,7 +791,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (max)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: mean, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (max)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: max, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -800,7 +800,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (mean)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: mean, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (mean)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: mean, createEmpty: true)",
           "refId": "A"
         },
         {
@@ -809,7 +809,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: true)",
           "refId": "C"
         }
       ],
@@ -1003,7 +1003,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l2_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 2 (max)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l2_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 2 (max)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: max, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -1012,7 +1012,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l2_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 2 (mean)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: mean, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l2_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 2 (mean)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: mean, createEmpty: true)",
           "refId": "A"
         },
         {
@@ -1021,7 +1021,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l2_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 2 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l2_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 2 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: true)",
           "refId": "C"
         }
       ],
@@ -1210,7 +1210,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l3_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 3 (max)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l3_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 3 (max)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: max, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -1219,7 +1219,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l3_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 3 (mean)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: mean, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l3_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 3 (mean)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: mean, createEmpty: true)",
           "refId": "A"
         },
         {
@@ -1228,7 +1228,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l3_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 3 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1M, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l3_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 3 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: true)",
           "refId": "C"
         }
       ],
@@ -1265,6 +1265,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - År per månad",
   "uid": "XVT2YtL7z",
-  "version": 2,
+  "version": 4,
   "weekStart": "monday"
 }
