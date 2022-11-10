@@ -9,10 +9,10 @@
     "url": "/d/ExJo88fnk/energimangd-detta-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:55:10Z",
-    "updated": "2022-11-10T12:19:17Z",
+    "updated": "2022-11-10T12:24:03Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 25,
+    "version": 26,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -675,6 +675,22 @@
       "type": "text"
     },
     {
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 6
+      },
+      "id": 40,
+      "options": {
+        "content": " ",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.3.3",
+      "transparent": true,
+      "type": "text"
+    },
+    {
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -854,6 +870,67 @@
         }
       ],
       "title": "Medel energimängd/dag",
+      "type": "stat"
+    },
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "fixedColor": "light-red",
+            "mode": "fixed"
+          },
+          "decimals": 1,
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "red",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "kwatth"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 9
+      },
+      "id": 39,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "8.3.3",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> min()",
+          "refId": "A"
+        }
+      ],
+      "title": "Min energimängd/dag",
       "type": "stat"
     },
     {
@@ -1487,6 +1564,6 @@
   "timezone": "browser",
   "title": "Energimängd - Detta år per dag",
   "uid": "ExJo88fnk",
-  "version": 25,
+  "version": 26,
   "weekStart": "monday"
 }
