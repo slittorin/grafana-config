@@ -9,10 +9,10 @@
     "url": "/d/cTx-ftY7z/stromstyrka-idag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:31:30Z",
-    "updated": "2022-03-05T16:37:13Z",
+    "updated": "2022-11-11T06:45:48Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 2,
+    "version": 3,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -791,7 +791,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (max)\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: mean, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (max)\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: max, createEmpty: true)",
           "refId": "B"
         },
         {
@@ -1274,6 +1274,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - Idag",
   "uid": "cTx-ftY7z",
-  "version": 2,
+  "version": 3,
   "weekStart": "monday"
 }

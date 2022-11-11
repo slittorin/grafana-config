@@ -9,10 +9,10 @@
     "url": "/d/8wTfKJE7k/energipris-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-18T13:27:23Z",
-    "updated": "2022-10-16T14:02:55Z",
+    "updated": "2022-11-10T14:53:21Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 8,
+    "version": 9,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -102,7 +102,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -163,7 +163,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
@@ -224,7 +224,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
@@ -285,7 +285,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -346,7 +346,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
@@ -407,7 +407,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_spot_sensor_intermediary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
@@ -468,7 +468,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -529,7 +529,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
@@ -590,7 +590,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_yield_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
@@ -989,6 +989,6 @@
   "timezone": "browser",
   "title": "Energipris - År per dag",
   "uid": "8wTfKJE7k",
-  "version": 8,
+  "version": 9,
   "weekStart": "monday"
 }
