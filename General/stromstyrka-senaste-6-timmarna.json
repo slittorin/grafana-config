@@ -9,10 +9,10 @@
     "url": "/d/Yz6EdHYnk/stromstyrka-senaste-6-timmarna",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T15:02:24Z",
-    "updated": "2022-11-11T06:44:37Z",
+    "updated": "2022-11-12T13:43:30Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 26,
+    "version": 28,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -230,6 +230,22 @@
       ],
       "title": "Min strömstyrka",
       "type": "stat"
+    },
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "id": 35,
+      "options": {
+        "content": "Sedan 2022-11-12 så är värmare för Spabad på fas 1.\r\nVar tidigare på fas 2.",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.3.3",
+      "transparent": true,
+      "type": "text"
     },
     {
       "fieldConfig": {
@@ -763,6 +779,21 @@
                 "value": "line"
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Värmare spabad påslagen"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
           }
         ]
       },
@@ -811,6 +842,15 @@
           "hide": false,
           "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (min)\",\r\n }))\r\n |> aggregateWindow(every: 5m, fn: min, createEmpty: true)",
           "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_heater_on\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (r._value General 13.5),\r\n _time: r._time,\r\n _field: \"Värmare spabad påslagen\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: last, createEmpty: true)\r\n |> fill(column: \"_value\", usePrevious: true)",
+          "refId": "D"
         }
       ],
       "transformations": [
@@ -1023,15 +1063,6 @@
           "hide": false,
           "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l2_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 2 (min)\",\r\n }))\r\n |> aggregateWindow(every: 5m, fn: min, createEmpty: true)",
           "refId": "C"
-        },
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_heater_on\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (r._value General 13.5),\r\n _time: r._time,\r\n _field: \"Värmare spabad påslagen\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: last, createEmpty: true)\r\n |> fill(column: \"_value\", usePrevious: true)",
-          "refId": "D"
         }
       ],
       "transformations": [],
@@ -1274,6 +1305,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - Senaste 6 timmarna",
   "uid": "Yz6EdHYnk",
-  "version": 26,
+  "version": 28,
   "weekStart": "monday"
 }

@@ -9,10 +9,10 @@
     "url": "/d/z9z7LtLnz/stromstyrka-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:41:03Z",
-    "updated": "2022-11-11T06:47:59Z",
+    "updated": "2022-11-12T13:49:03Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 3,
+    "version": 4,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -230,6 +230,22 @@
       ],
       "title": "Min strömstyrka",
       "type": "stat"
+    },
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 16,
+        "y": 0
+      },
+      "id": 35,
+      "options": {
+        "content": "Sedan 2022-11-12 så är värmare för Spabad på fas 1.\nVar tidigare på fas 2.",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.3.3",
+      "transparent": true,
+      "type": "text"
     },
     {
       "fieldConfig": {
@@ -1265,6 +1281,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - Denna månad",
   "uid": "z9z7LtLnz",
-  "version": 3,
+  "version": 4,
   "weekStart": "monday"
 }

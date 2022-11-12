@@ -9,10 +9,10 @@
     "url": "/d/m6URONLnk/effekt-senaste-6-timmarna",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T14:50:16Z",
-    "updated": "2022-11-10T14:01:42Z",
+    "updated": "2022-11-12T14:04:18Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 8,
+    "version": 10,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -281,7 +281,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: max)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\" or r[\"entity_id\"] == \"sma_grid_power_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> aggregateWindow(every: 1h, fn: max)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -341,7 +341,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: mean)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\" or r[\"entity_id\"] == \"sma_grid_power_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> aggregateWindow(every: 1h, fn: mean)\r\n |> mean()",
           "refId": "A"
         }
       ],
@@ -401,7 +401,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: max)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\" or r[\"entity_id\"] == \"sma_metering_power_supplied_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> aggregateWindow(every: 1h, fn: max)\r\n |> max()",
           "refId": "A"
         }
       ],
@@ -461,7 +461,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: mean)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\" or r[\"entity_id\"] == \"sma_metering_power_supplied_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> aggregateWindow(every: 1h, fn: mean)\r\n |> mean()",
           "refId": "A"
         }
       ],
@@ -727,7 +727,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Solelsproduktion\",\r\n }))\r\n |> aggregateWindow(every: 5m, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\" or r[\"entity_id\"] == \"sma_grid_power_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Solelsproduktion\",\r\n }))\r\n |> aggregateWindow(every: 5m, fn: min, createEmpty: true)",
           "refId": "Kostnad"
         },
         {
@@ -736,7 +736,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Utmatning av solelsproduktion till nät\",\r\n }))\r\n |> aggregateWindow(every: 5m, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\" or r[\"entity_id\"] == \"sma_metering_power_supplied_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Utmatning av solelsproduktion till nät\",\r\n }))\r\n |> aggregateWindow(every: 5m, fn: min, createEmpty: true)",
           "refId": "Reduktion"
         }
       ],
@@ -773,6 +773,6 @@
   "timezone": "browser",
   "title": "Effekt - Senaste 6 timmarna",
   "uid": "m6URONLnk",
-  "version": 8,
+  "version": 10,
   "weekStart": "monday"
 }

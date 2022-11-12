@@ -9,10 +9,10 @@
     "url": "/d/LoFvYpY7k/stromstyrka-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:43:24Z",
-    "updated": "2022-11-11T06:48:33Z",
+    "updated": "2022-11-12T13:50:06Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 5,
+    "version": 6,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -169,6 +169,22 @@
       ],
       "title": "Medel strömstyrka",
       "type": "stat"
+    },
+    {
+      "gridPos": {
+        "h": 3,
+        "w": 4,
+        "x": 12,
+        "y": 0
+      },
+      "id": 35,
+      "options": {
+        "content": "Sedan 2022-11-12 så är värmare för Spabad på fas 1.\nVar tidigare på fas 2.",
+        "mode": "markdown"
+      },
+      "pluginVersion": "8.3.3",
+      "transparent": true,
+      "type": "text"
     },
     {
       "fieldConfig": {
@@ -1082,6 +1098,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - År per dag",
   "uid": "LoFvYpY7k",
-  "version": 5,
+  "version": 6,
   "weekStart": "monday"
 }
