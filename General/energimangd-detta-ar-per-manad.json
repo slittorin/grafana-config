@@ -9,10 +9,10 @@
     "url": "/d/zja-8UBnz/energimangd-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:57:23Z",
-    "updated": "2022-11-10T12:23:43Z",
+    "updated": "2022-12-28T12:07:49Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 22,
+    "version": 25,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -1323,7 +1323,7 @@
               "type": "linear"
             },
             "showPoints": "never",
-            "spanNulls": true,
+            "spanNulls": false,
             "stacking": {
               "group": "A",
               "mode": "none"
@@ -1463,7 +1463,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "Kostnad"
         },
         {
@@ -1472,7 +1472,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Solproduktion\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_production_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Solproduktion\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "Reduktion"
         },
         {
@@ -1481,7 +1481,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "D"
         },
         {
@@ -1490,7 +1490,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Värmare spabad\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_circulation_pump_heater_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Värmare spabad\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "C"
         },
         {
@@ -1499,7 +1499,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_total_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "B"
         },
         {
@@ -1508,7 +1508,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Utmatning solproduktion\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_solar_yield_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Utmatning solproduktion\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "A"
         }
       ],
@@ -1545,6 +1545,6 @@
   "timezone": "browser",
   "title": "Energimängd - Detta år per månad",
   "uid": "zja-8UBnz",
-  "version": 22,
+  "version": 25,
   "weekStart": "monday"
 }

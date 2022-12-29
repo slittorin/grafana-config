@@ -9,10 +9,10 @@
     "url": "/d/cTx-ftY7z/stromstyrka-idag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:31:30Z",
-    "updated": "2022-11-12T13:45:35Z",
+    "updated": "2022-12-29T09:03:43Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 5,
+    "version": 13,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -623,8 +623,8 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
+            "barAlignment": -1,
+            "drawStyle": "bars",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -681,69 +681,7 @@
                   "fixedColor": "red",
                   "mode": "fixed"
                 }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 1 (mean)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "red",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 1 (min)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "red",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 1 (mean)"
-            },
-            "properties": [
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 1 (min)"
-            },
-            "properties": [
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 1 (max)"
-            },
-            "properties": [
+              },
               {
                 "id": "custom.fillBelowTo",
                 "value": "Fas 1 (min)"
@@ -757,6 +695,13 @@
             },
             "properties": [
               {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
                 "id": "custom.lineStyle",
                 "value": {
                   "dash": [
@@ -765,6 +710,14 @@
                   ],
                   "fill": "dash"
                 }
+              },
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
               }
             ]
           },
@@ -777,21 +730,36 @@
               {
                 "id": "custom.drawStyle",
                 "value": "line"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Värmare spabad påslagen"
-            },
-            "properties": [
+              },
               {
                 "id": "color",
                 "value": {
                   "fixedColor": "orange",
                   "mode": "fixed"
                 }
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "stepAfter"
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Fas 1 (min)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
               }
             ]
           }
@@ -822,7 +790,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (max)\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (max)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: false)",
           "refId": "B"
         },
         {
@@ -831,7 +799,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (mean)\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: mean, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (mean)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: mean, createEmpty: false)",
           "refId": "A"
         },
         {
@@ -840,7 +808,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (min)\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> fill(value: 0.0)",
           "refId": "C"
         },
         {
@@ -849,14 +817,17 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_heater_on\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (r._value General 13.5),\r\n _time: r._time,\r\n _field: \"Värmare spabad påslagen\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: last, createEmpty: true)\r\n |> fill(column: \"_value\", usePrevious: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_heater_on\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (r._value General 13.5),\r\n _time: r._time,\r\n _field: \"Värmare spabad påslagen\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: last, createEmpty: false)\r\n |> fill(column: \"_value\", usePrevious: true)",
           "refId": "D"
         }
       ],
       "transformations": [
         {
           "id": "convertFieldType",
-          "options": {}
+          "options": {
+            "conversions": [],
+            "fields": {}
+          }
         }
       ],
       "type": "timeseries"
@@ -1305,6 +1276,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - Idag",
   "uid": "cTx-ftY7z",
-  "version": 5,
+  "version": 13,
   "weekStart": "monday"
 }

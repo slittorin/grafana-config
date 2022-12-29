@@ -9,10 +9,10 @@
     "url": "/d/GiztvNYnk/effekt-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T14:39:29Z",
-    "updated": "2022-11-12T14:09:57Z",
+    "updated": "2022-12-28T13:07:55Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 12,
+    "version": 14,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -418,8 +418,8 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
+            "barAlignment": -1,
+            "drawStyle": "bars",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -631,7 +631,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (max)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (max)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: max, createEmpty: false)",
           "refId": "B"
         },
         {
@@ -640,7 +640,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (medel)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: mean, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (medel)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: mean, createEmpty: false)",
           "refId": "A"
         },
         {
@@ -649,7 +649,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (min)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (min)\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: false)",
           "refId": "C"
         },
         {
@@ -658,7 +658,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\" or r[\"entity_id\"] == \"sma_grid_power_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Solelsproduktion\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\" or r[\"entity_id\"] == \"sma_grid_power_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Solelsproduktion\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: false)",
           "refId": "Kostnad"
         },
         {
@@ -667,7 +667,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\" or r[\"entity_id\"] == \"sma_metering_power_supplied_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Utmatning av solelsproduktion till nät\",\r\n }))\r\n |> aggregateWindow(every: 15m, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\" or r[\"entity_id\"] == \"sma_metering_power_supplied_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Utmatning av solelsproduktion till nät\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: min, createEmpty: false)",
           "refId": "Reduktion"
         }
       ],
@@ -704,6 +704,6 @@
   "timezone": "browser",
   "title": "Effekt - Detta år per månad",
   "uid": "GiztvNYnk",
-  "version": 12,
+  "version": 14,
   "weekStart": "monday"
 }

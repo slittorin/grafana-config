@@ -9,10 +9,10 @@
     "url": "/d/mtpwJZY7k/effekt-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-28T18:29:52Z",
-    "updated": "2022-11-12T14:06:17Z",
+    "updated": "2022-12-28T12:57:48Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 15,
+    "version": 17,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -478,8 +478,8 @@
           "custom": {
             "axisLabel": "",
             "axisPlacement": "auto",
-            "barAlignment": 0,
-            "drawStyle": "line",
+            "barAlignment": -1,
+            "drawStyle": "bars",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -663,6 +663,22 @@
                 }
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Värmare spabad påslagen"
+            },
+            "properties": [
+              {
+                "id": "custom.drawStyle",
+                "value": "line"
+              },
+              {
+                "id": "custom.lineInterpolation",
+                "value": "stepAfter"
+              }
+            ]
           }
         ]
       },
@@ -691,7 +707,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (max)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (max)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: false)",
           "refId": "B"
         },
         {
@@ -700,7 +716,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (medel)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_mean_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (medel)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: mean, createEmpty: false)",
           "refId": "A"
         },
         {
@@ -709,7 +725,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (min)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: max, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_power_absorbed_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag av energi (min)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: false)",
           "refId": "C"
         },
         {
@@ -718,7 +734,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_heater_on\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (r._value General 3300.0),\r\n _time: r._time,\r\n _field: \"Värmare spabad påslagen\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: last, createEmpty: true)\r\n |> fill(column: \"_value\", usePrevious: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_heater_on\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (r._value General 3300.0),\r\n _time: r._time,\r\n _field: \"Värmare spabad påslagen\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: last, createEmpty: false)\r\n |> fill(column: \"_value\", usePrevious: true)",
           "refId": "D"
         },
         {
@@ -727,7 +743,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\" or r[\"entity_id\"] == \"sma_grid_power_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Solelsproduktion\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"grid_power\" or r[\"entity_id\"] == \"sma_grid_power_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value,\r\n _time: r._time,\r\n _field: \"Solelsproduktion\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: false)",
           "refId": "Kostnad"
         },
         {
@@ -736,7 +752,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\" or r[\"entity_id\"] == \"sma_metering_power_supplied_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Utmatning av solelsproduktion till nät\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"metering_power_supplied\" or r[\"entity_id\"] == \"sma_metering_power_supplied_max_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> group(columns: [\"_field\"], mode:\"by\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Utmatning av solelsproduktion till nät\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: false)",
           "refId": "Reduktion"
         }
       ],
@@ -773,6 +789,6 @@
   "timezone": "browser",
   "title": "Effekt - Igår",
   "uid": "mtpwJZY7k",
-  "version": 15,
+  "version": 17,
   "weekStart": "monday"
 }
