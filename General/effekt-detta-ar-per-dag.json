@@ -9,10 +9,10 @@
     "url": "/d/zPhDDHL7z/effekt-detta-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T14:37:32Z",
-    "updated": "2022-12-28T13:08:12Z",
+    "updated": "2022-12-30T18:33:11Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 14,
+    "version": 15,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -419,7 +419,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": -1,
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -704,6 +704,6 @@
   "timezone": "browser",
   "title": "Effekt - Detta år per dag",
   "uid": "zPhDDHL7z",
-  "version": 14,
+  "version": 15,
   "weekStart": "monday"
 }

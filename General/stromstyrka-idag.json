@@ -9,10 +9,10 @@
     "url": "/d/cTx-ftY7z/stromstyrka-idag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:31:30Z",
-    "updated": "2022-12-29T09:03:43Z",
+    "updated": "2022-12-30T16:54:12Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 13,
+    "version": 25,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -251,7 +251,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-orange",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -312,7 +312,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-orange",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -373,7 +373,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-orange",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -434,7 +434,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -495,7 +495,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -556,7 +556,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -624,7 +624,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": -1,
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -762,6 +762,36 @@
                 "value": 0
               }
             ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Elbilsladdning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "orange",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Värmare spabad påslagen"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "purple",
+                  "mode": "fixed"
+                }
+              }
+            ]
           }
         ]
       },
@@ -808,7 +838,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)\r\n |> fill(value: 0.0)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l1_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 1 (min)\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: min, createEmpty: true)",
           "refId": "C"
         },
         {
@@ -819,6 +849,15 @@
           "hide": false,
           "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"balboa_spa_heater_on\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (r._value General 13.5),\r\n _time: r._time,\r\n _field: \"Värmare spabad påslagen\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: last, createEmpty: false)\r\n |> fill(column: \"_value\", usePrevious: true)",
           "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"ehs4plem_power\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (((r._value General 1000.0) / 240.0) / 3.0),\r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: max, createEmpty: false)\r\n |> fill(column: \"_value\", usePrevious: true)",
+          "refId": "E"
         }
       ],
       "transformations": [
@@ -897,72 +936,10 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-orange",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 2 (mean)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "light-orange",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 2 (min)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "light-orange",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 2 (mean)"
-            },
-            "properties": [
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 2 (min)"
-            },
-            "properties": [
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 2 (max)"
-            },
-            "properties": [
+              },
               {
                 "id": "custom.fillBelowTo",
                 "value": "Fas 2 (min)"
@@ -976,6 +953,17 @@
             },
             "properties": [
               {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
                 "id": "custom.lineStyle",
                 "value": {
                   "dash": [
@@ -983,6 +971,40 @@
                     10
                   ],
                   "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Fas 2 (min)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Elbilsladdning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-orange",
+                  "mode": "fixed"
                 }
               }
             ]
@@ -1034,6 +1056,15 @@
           "hide": false,
           "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l2_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 2 (min)\",\r\n }))\r\n |> aggregateWindow(every: 5m, fn: min, createEmpty: true)",
           "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"ehs4plem_power\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (((r._value General 1000.0) / 240.0) / 3.0),\r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: max, createEmpty: false)\r\n |> fill(column: \"_value\", usePrevious: true)",
+          "refId": "D"
         }
       ],
       "transformations": [],
@@ -1104,72 +1135,10 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 3 (max)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "yellow",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 3 (min)"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "yellow",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 3 (mean)"
-            },
-            "properties": [
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 3 (min)"
-            },
-            "properties": [
-              {
-                "id": "custom.fillOpacity",
-                "value": 0
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Fas 3 (max)"
-            },
-            "properties": [
+              },
               {
                 "id": "custom.fillBelowTo",
                 "value": "Fas 3 (min)"
@@ -1183,6 +1152,17 @@
             },
             "properties": [
               {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              },
+              {
                 "id": "custom.lineStyle",
                 "value": {
                   "dash": [
@@ -1190,6 +1170,40 @@
                     10
                   ],
                   "fill": "dash"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Fas 3 (min)"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "custom.fillOpacity",
+                "value": 0
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Elbilsladdning"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "super-light-orange",
+                  "mode": "fixed"
                 }
               }
             ]
@@ -1241,6 +1255,15 @@
           "hide": false,
           "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"sma_metering_current_l3_min_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Fas 3 (min)\",\r\n }))\r\n |> aggregateWindow(every: 5m, fn: min, createEmpty: true)",
           "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "hide": false,
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"ehs4plem_power\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: (((r._value General 1000.0) / 240.0) / 3.0),\r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> aggregateWindow(every: 1m, fn: max, createEmpty: false)\r\n |> fill(column: \"_value\", usePrevious: true)",
+          "refId": "D"
         }
       ],
       "transformations": [],
@@ -1276,6 +1299,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - Idag",
   "uid": "cTx-ftY7z",
-  "version": 13,
+  "version": 25,
   "weekStart": "monday"
 }

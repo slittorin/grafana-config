@@ -9,10 +9,10 @@
     "url": "/d/r9GfsPfnz/energikostnad-detta-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-23T19:01:43Z",
-    "updated": "2022-12-28T12:18:16Z",
+    "updated": "2022-12-30T18:45:04Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 29,
+    "version": 30,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -296,7 +296,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -357,7 +357,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 2,
@@ -418,7 +418,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 2,
@@ -479,7 +479,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 2,
@@ -540,7 +540,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -601,7 +601,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 2,
@@ -1146,7 +1146,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1176,7 +1176,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "super-light-orange",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1290,6 +1290,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Detta år per dag",
   "uid": "r9GfsPfnz",
-  "version": 29,
+  "version": 30,
   "weekStart": "monday"
 }

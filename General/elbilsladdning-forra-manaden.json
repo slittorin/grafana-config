@@ -9,10 +9,10 @@
     "url": "/d/4L0XW5I4k/elbilsladdning-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-10-13T19:02:03Z",
-    "updated": "2022-12-28T12:23:38Z",
+    "updated": "2022-12-30T18:36:19Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 16,
+    "version": 17,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -52,7 +52,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "mappings": [],
@@ -112,7 +112,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -385,7 +385,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "super-light-orange",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -478,6 +478,6 @@
   "timezone": "browser",
   "title": "Elbilsladdning - Förra månaden",
   "uid": "4L0XW5I4k",
-  "version": 16,
+  "version": 17,
   "weekStart": "monday"
 }

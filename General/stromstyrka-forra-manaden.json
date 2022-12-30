@@ -9,10 +9,10 @@
     "url": "/d/9znlBtL7z/stromstyrka-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:35:06Z",
-    "updated": "2022-11-12T13:49:30Z",
+    "updated": "2022-12-30T16:20:18Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 7,
+    "version": 8,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -251,7 +251,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-orange",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -312,7 +312,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-orange",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -373,7 +373,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-orange",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -434,7 +434,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -495,7 +495,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -556,7 +556,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -902,7 +902,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-orange",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -917,7 +917,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-orange",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -932,7 +932,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-orange",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -1109,7 +1109,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -1118,13 +1118,13 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Fas 3 (max)"
+              "options": "Fas 3 (mean)"
             },
             "properties": [
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -1139,7 +1139,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -1281,6 +1281,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - Förra månaden",
   "uid": "9znlBtL7z",
-  "version": 7,
+  "version": 8,
   "weekStart": "monday"
 }

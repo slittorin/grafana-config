@@ -9,10 +9,10 @@
     "url": "/d/NcTTP8fnz/energimangd-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:20:10Z",
-    "updated": "2022-12-28T11:59:41Z",
+    "updated": "2022-12-30T18:52:29Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 27,
+    "version": 29,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -295,7 +295,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "mappings": [],
@@ -355,7 +355,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -416,7 +416,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -477,7 +477,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -538,7 +538,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "mappings": [],
@@ -598,7 +598,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -1521,7 +1521,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1551,7 +1551,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "super-light-orange",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1602,7 +1602,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: -r._value, \r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value, \r\n _time: r._time,\r\n _field: \"Elbilsladdning\",\r\n }))\r\n |> timeShift(duration: -1h)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
           "refId": "D"
         },
         {
@@ -1666,6 +1666,6 @@
   "timezone": "browser",
   "title": "Energimängd - Förra månaden",
   "uid": "NcTTP8fnz",
-  "version": 27,
+  "version": 29,
   "weekStart": "monday"
 }

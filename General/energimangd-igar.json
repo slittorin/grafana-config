@@ -9,10 +9,10 @@
     "url": "/d/hk3PBUBnk/energimangd-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T12:49:17Z",
-    "updated": "2022-12-28T11:57:26Z",
+    "updated": "2022-12-30T18:50:46Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 48,
+    "version": 49,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -295,7 +295,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "mappings": [],
@@ -355,7 +355,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -416,7 +416,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -477,7 +477,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -538,7 +538,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "mappings": [],
@@ -598,7 +598,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -1291,7 +1291,7 @@
             "barAlignment": -1,
             "drawStyle": "bars",
             "fillOpacity": 20,
-            "gradientMode": "opacity",
+            "gradientMode": "none",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1414,7 +1414,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1432,10 +1432,6 @@
                   "fixedColor": "purple",
                   "mode": "fixed"
                 }
-              },
-              {
-                "id": "custom.lineWidth",
-                "value": 4
               },
               {
                 "id": "custom.lineStyle",
@@ -1495,7 +1491,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "super-light-orange",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1593,7 +1589,7 @@
     "to": "now/d"
   },
   "timepicker": {
-    "hidden": false,
+    "hidden": true,
     "refresh_intervals": [
       "5s",
       "10s",
@@ -1610,6 +1606,6 @@
   "timezone": "browser",
   "title": "Energimängd - Igår",
   "uid": "hk3PBUBnk",
-  "version": 48,
+  "version": 49,
   "weekStart": "monday"
 }

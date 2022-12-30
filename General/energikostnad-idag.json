@@ -9,10 +9,10 @@
     "url": "/d/5OFTMBB7k/energikostnad-idag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-22T18:48:34Z",
-    "updated": "2022-12-29T09:07:31Z",
+    "updated": "2022-12-30T18:39:36Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 55,
+    "version": 56,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -174,7 +174,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -251,7 +251,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -674,40 +674,9 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Utetemperatur"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Utetemperatur"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "celsius"
               }
             ]
           },
@@ -832,7 +801,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "super-light-orange",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -956,6 +925,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Idag",
   "uid": "5OFTMBB7k",
-  "version": 55,
+  "version": 56,
   "weekStart": "monday"
 }

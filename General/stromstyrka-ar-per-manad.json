@@ -9,10 +9,10 @@
     "url": "/d/XVT2YtL7z/stromstyrka-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:46:12Z",
-    "updated": "2022-11-12T13:50:38Z",
+    "updated": "2022-12-30T16:44:45Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 8,
+    "version": 9,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -190,7 +190,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-orange",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -251,7 +251,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "light-orange",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -312,7 +312,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -373,7 +373,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "yellow",
+            "fixedColor": "red",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -719,7 +719,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-orange",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -734,7 +734,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-orange",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -749,7 +749,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "light-orange",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -926,7 +926,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -935,13 +935,13 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Fas 3 (max)"
+              "options": "Fas 3 (mean)"
             },
             "properties": [
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -956,7 +956,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "yellow",
+                  "fixedColor": "red",
                   "mode": "fixed"
                 }
               }
@@ -1098,6 +1098,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - År per månad",
   "uid": "XVT2YtL7z",
-  "version": 8,
+  "version": 9,
   "weekStart": "monday"
 }

@@ -9,10 +9,10 @@
     "url": "/d/_xWi28Bnk/energikostnad-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T10:53:03Z",
-    "updated": "2022-12-28T12:12:09Z",
+    "updated": "2022-12-30T18:40:54Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 30,
+    "version": 31,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -296,7 +296,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -373,7 +373,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "super-light-orange",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -918,7 +918,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1045,7 +1045,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "super-light-orange",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1193,6 +1193,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Igår",
   "uid": "_xWi28Bnk",
-  "version": 30,
+  "version": 31,
   "weekStart": "monday"
 }
