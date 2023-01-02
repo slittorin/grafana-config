@@ -9,10 +9,10 @@
     "url": "/d/6F5jEUfnk/energimangd-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:27:46Z",
-    "updated": "2022-12-30T18:54:05Z",
+    "updated": "2023-01-02T08:10:00Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 21,
+    "version": 22,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -295,7 +295,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "mappings": [],
@@ -355,7 +355,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -416,7 +416,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -477,7 +477,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -538,7 +538,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "mappings": [],
@@ -598,7 +598,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -1537,7 +1537,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1552,7 +1552,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "purple",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1667,6 +1667,6 @@
   "timezone": "browser",
   "title": "Energimängd - Denna månad",
   "uid": "6F5jEUfnk",
-  "version": 21,
+  "version": 22,
   "weekStart": "monday"
 }

@@ -9,10 +9,10 @@
     "url": "/d/8NGXicSVk/elbilsladdning-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-10-13T18:44:22Z",
-    "updated": "2022-12-30T18:35:41Z",
+    "updated": "2023-01-02T07:50:59Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 15,
+    "version": 16,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -52,7 +52,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "mappings": [],
@@ -112,7 +112,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -385,7 +385,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -464,6 +464,6 @@
   "timezone": "browser",
   "title": "Elbilsladdning - Igår",
   "uid": "8NGXicSVk",
-  "version": 15,
+  "version": 16,
   "weekStart": "monday"
 }

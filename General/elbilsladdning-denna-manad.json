@@ -9,10 +9,10 @@
     "url": "/d/-rsFZ5I4z/elbilsladdning-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-10-13T18:53:26Z",
-    "updated": "2022-12-30T18:36:52Z",
+    "updated": "2023-01-02T07:52:48Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 16,
+    "version": 17,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -52,7 +52,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "mappings": [],
@@ -112,7 +112,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -385,7 +385,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -464,6 +464,6 @@
   "timezone": "browser",
   "title": "Elbilsladdning - Denna månad",
   "uid": "-rsFZ5I4z",
-  "version": 16,
+  "version": 17,
   "weekStart": "monday"
 }

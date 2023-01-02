@@ -9,10 +9,10 @@
     "url": "/d/cTx-ftY7z/stromstyrka-idag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:31:30Z",
-    "updated": "2022-12-30T16:54:12Z",
+    "updated": "2023-01-02T07:45:28Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 25,
+    "version": 27,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -772,7 +772,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -787,7 +787,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "purple",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1003,7 +1003,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "super-light-orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1202,7 +1202,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "super-light-orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1299,6 +1299,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - Idag",
   "uid": "cTx-ftY7z",
-  "version": 25,
+  "version": 27,
   "weekStart": "monday"
 }

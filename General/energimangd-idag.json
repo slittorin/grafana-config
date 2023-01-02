@@ -9,10 +9,10 @@
     "url": "/d/uXvXc8B7z/energimangd-idag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T10:31:52Z",
-    "updated": "2022-12-30T18:48:00Z",
+    "updated": "2023-01-02T08:04:52Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 53,
+    "version": 54,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -173,7 +173,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "mappings": [],
@@ -233,7 +233,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -294,7 +294,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "mappings": [],
@@ -354,7 +354,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -910,7 +910,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "purple",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1024,7 +1024,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1139,6 +1139,6 @@
   "timezone": "browser",
   "title": "Energimängd - Idag",
   "uid": "uXvXc8B7z",
-  "version": 53,
+  "version": 54,
   "weekStart": "monday"
 }

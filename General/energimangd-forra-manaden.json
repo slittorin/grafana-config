@@ -9,10 +9,10 @@
     "url": "/d/NcTTP8fnz/energimangd-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:20:10Z",
-    "updated": "2022-12-30T18:52:29Z",
+    "updated": "2023-01-02T08:07:22Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 29,
+    "version": 30,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -295,7 +295,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "mappings": [],
@@ -355,7 +355,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -416,7 +416,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -477,7 +477,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -538,7 +538,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "mappings": [],
@@ -598,7 +598,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -1521,7 +1521,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "purple",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1551,7 +1551,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1666,6 +1666,6 @@
   "timezone": "browser",
   "title": "Energimängd - Förra månaden",
   "uid": "NcTTP8fnz",
-  "version": 29,
+  "version": 30,
   "weekStart": "monday"
 }

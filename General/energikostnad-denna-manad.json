@@ -9,10 +9,10 @@
     "url": "/d/m2XBgEB7k/energikostnad-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-23T12:20:09Z",
-    "updated": "2022-12-30T18:43:53Z",
+    "updated": "2023-01-02T08:00:54Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 34,
+    "version": 35,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -106,7 +106,7 @@
           "refId": "A"
         }
       ],
-      "title": "Total kostnad intag av energi",
+      "title": "Total kostnad intag av energi (utan reduktion för elbilsladdning)",
       "type": "stat"
     },
     {
@@ -296,7 +296,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -357,7 +357,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 2,
@@ -418,7 +418,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 2,
@@ -479,7 +479,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 2,
@@ -540,7 +540,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -601,7 +601,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 2,
@@ -1268,7 +1268,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "purple",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -1298,7 +1298,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1412,6 +1412,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Denna månad",
   "uid": "m2XBgEB7k",
-  "version": 34,
+  "version": 35,
   "weekStart": "monday"
 }

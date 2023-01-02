@@ -9,10 +9,10 @@
     "url": "/d/mtpwJZY7k/effekt-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-28T18:29:52Z",
-    "updated": "2022-12-30T18:31:18Z",
+    "updated": "2023-01-02T07:48:35Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 19,
+    "version": 20,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -677,7 +677,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "purple",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
               }
@@ -692,7 +692,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               },
@@ -820,6 +820,6 @@
   "timezone": "browser",
   "title": "Effekt - Igår",
   "uid": "mtpwJZY7k",
-  "version": 19,
+  "version": 20,
   "weekStart": "monday"
 }

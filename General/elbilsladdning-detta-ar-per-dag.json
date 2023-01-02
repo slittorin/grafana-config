@@ -9,10 +9,10 @@
     "url": "/d/9z98c-IVz/elbilsladdning-detta-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-10-16T14:52:35Z",
-    "updated": "2022-12-30T18:37:27Z",
+    "updated": "2023-01-02T07:52:18Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 10,
+    "version": 11,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -52,7 +52,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "mappings": [],
@@ -112,7 +112,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 1,
@@ -385,7 +385,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -464,6 +464,6 @@
   "timezone": "browser",
   "title": "Elbilsladdning - Detta år per dag",
   "uid": "9z98c-IVz",
-  "version": 10,
+  "version": 11,
   "weekStart": "monday"
 }

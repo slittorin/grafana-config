@@ -9,10 +9,10 @@
     "url": "/d/_xWi28Bnk/energikostnad-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T10:53:03Z",
-    "updated": "2022-12-30T18:40:54Z",
+    "updated": "2023-01-02T07:56:16Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 31,
+    "version": 32,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 0,
@@ -106,7 +106,7 @@
           "refId": "A"
         }
       ],
-      "title": "Total kostnad intag av energi",
+      "title": "Total kostnad intag av energi (utan reduktion för elbilsladdning)",
       "type": "stat"
     },
     {
@@ -296,7 +296,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "purple",
+            "fixedColor": "orange",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -373,7 +373,7 @@
       "fieldConfig": {
         "defaults": {
           "color": {
-            "fixedColor": "orange",
+            "fixedColor": "purple",
             "mode": "fixed"
           },
           "decimals": 0,
@@ -918,40 +918,9 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "purple",
+                  "fixedColor": "orange",
                   "mode": "fixed"
                 }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Utetemperatur"
-            },
-            "properties": [
-              {
-                "id": "color",
-                "value": {
-                  "fixedColor": "blue",
-                  "mode": "fixed"
-                }
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": "Utetemperatur"
-            },
-            "properties": [
-              {
-                "id": "custom.axisPlacement",
-                "value": "right"
-              },
-              {
-                "id": "unit",
-                "value": "celsius"
               }
             ]
           },
@@ -1045,7 +1014,7 @@
               {
                 "id": "color",
                 "value": {
-                  "fixedColor": "orange",
+                  "fixedColor": "purple",
                   "mode": "fixed"
                 }
               }
@@ -1193,6 +1162,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Igår",
   "uid": "_xWi28Bnk",
-  "version": 31,
+  "version": 32,
   "weekStart": "monday"
 }
