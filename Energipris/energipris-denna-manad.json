@@ -9,10 +9,10 @@
     "url": "/d/Li7PZ6L7z/energipris-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-11T11:22:09Z",
-    "updated": "2023-01-03T07:46:23Z",
+    "updated": "2023-01-03T14:27:36Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 24,
+    "version": 26,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 51,
@@ -609,7 +609,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": -1,
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -617,7 +617,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "stepBefore",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -802,7 +802,7 @@
               },
               {
                 "id": "custom.fillBelowTo",
-                "value": "Elkonsumptionsavgift (medel)"
+                "value": "Elkonsumptionsavgift (min)"
               }
             ]
           },
@@ -990,6 +990,6 @@
   "timezone": "browser",
   "title": "Energipris - Denna månad",
   "uid": "Li7PZ6L7z",
-  "version": 24,
+  "version": 26,
   "weekStart": "monday"
 }

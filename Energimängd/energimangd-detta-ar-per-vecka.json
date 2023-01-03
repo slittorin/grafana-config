@@ -9,10 +9,10 @@
     "url": "/d/K-QNx3tVz/energimangd-detta-ar-per-vecka",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T12:34:29Z",
-    "updated": "2023-01-03T13:01:09Z",
+    "updated": "2023-01-03T14:52:30Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 3,
+    "version": 4,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1558,8 +1558,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energimängd - Detta år per vecka",
+  "title": "Energimängd - Detta år - Per vecka",
   "uid": "K-QNx3tVz",
-  "version": 3,
+  "version": 4,
   "weekStart": "monday"
 }

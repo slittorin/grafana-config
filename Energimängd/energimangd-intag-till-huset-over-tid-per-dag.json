@@ -9,10 +9,10 @@
     "url": "/d/MW-5fqp4z/energimangd-intag-till-huset-over-tid-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T13:11:31Z",
-    "updated": "2023-01-03T13:16:49Z",
+    "updated": "2023-01-03T14:54:53Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 3,
+    "version": 4,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1496,8 +1496,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energimängd intag till huset - Över tid per dag",
+  "title": "Energimängd intag till huset - Över tid - Per dag",
   "uid": "MW-5fqp4z",
-  "version": 3,
+  "version": 4,
   "weekStart": "monday"
 }

@@ -9,10 +9,10 @@
     "url": "/d/UqN8fqt4z/energimangd-intag-till-huset-over-tid-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T13:17:54Z",
-    "updated": "2023-01-03T13:18:36Z",
+    "updated": "2023-01-03T14:55:02Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 2,
+    "version": 3,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1496,8 +1496,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energimängd intag till huset - Över tid per månad",
+  "title": "Energimängd intag till huset - Över tid - Per månad",
   "uid": "UqN8fqt4z",
-  "version": 2,
+  "version": 3,
   "weekStart": "monday"
 }

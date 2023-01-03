@@ -9,10 +9,10 @@
     "url": "/d/ExJo88fnk/energimangd-detta-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:55:10Z",
-    "updated": "2023-01-03T13:01:27Z",
+    "updated": "2023-01-03T14:51:55Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 32,
+    "version": 33,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1562,8 +1562,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energimängd - Detta år per dag",
+  "title": "Energimängd - Detta år - Per dag",
   "uid": "ExJo88fnk",
-  "version": 32,
+  "version": 33,
   "weekStart": "monday"
 }
