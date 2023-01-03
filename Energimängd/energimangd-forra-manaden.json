@@ -9,10 +9,10 @@
     "url": "/d/NcTTP8fnz/energimangd-forra-manaden",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:20:10Z",
-    "updated": "2023-01-03T13:00:26Z",
+    "updated": "2023-01-03T16:00:48Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 32,
+    "version": 33,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1413,7 +1413,7 @@
             "barAlignment": -1,
             "drawStyle": "line",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1666,6 +1666,6 @@
   "timezone": "browser",
   "title": "Energimängd - Förra månaden",
   "uid": "NcTTP8fnz",
-  "version": 32,
+  "version": 33,
   "weekStart": "monday"
 }

@@ -9,10 +9,10 @@
     "url": "/d/vPQX-3tVz/energimangd-anvant-av-huset-over-tid-per-vecka",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T13:02:20Z",
-    "updated": "2023-01-03T14:54:33Z",
+    "updated": "2023-01-03T15:57:00Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 4,
+    "version": 5,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1281,7 +1281,7 @@
             "barAlignment": -1,
             "drawStyle": "line",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1498,6 +1498,6 @@
   "timezone": "browser",
   "title": "Energimängd använt av huset - Över tid - Per vecka",
   "uid": "vPQX-3tVz",
-  "version": 4,
+  "version": 5,
   "weekStart": "monday"
 }

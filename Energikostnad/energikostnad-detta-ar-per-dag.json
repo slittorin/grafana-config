@@ -9,10 +9,10 @@
     "url": "/d/r9GfsPfnz/energikostnad-detta-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-23T19:01:43Z",
-    "updated": "2023-01-03T07:46:00Z",
+    "updated": "2023-01-03T15:07:51Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 32,
+    "version": 34,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 50,
@@ -1290,6 +1290,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Detta år per dag",
   "uid": "r9GfsPfnz",
-  "version": 32,
+  "version": 34,
   "weekStart": "monday"
 }

@@ -9,10 +9,10 @@
     "url": "/d/fievYqtVz/energimangd-denna-vecka",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T13:27:33Z",
-    "updated": "2023-01-03T13:36:53Z",
+    "updated": "2023-01-03T16:01:06Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 3,
+    "version": 4,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1414,7 +1414,7 @@
             "barAlignment": -1,
             "drawStyle": "bars",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1667,6 +1667,6 @@
   "timezone": "browser",
   "title": "Energimängd - Denna vecka",
   "uid": "fievYqtVz",
-  "version": 3,
+  "version": 4,
   "weekStart": "monday"
 }

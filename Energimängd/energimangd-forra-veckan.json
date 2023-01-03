@@ -9,10 +9,10 @@
     "url": "/d/lDEdY3tVk/energimangd-forra-veckan",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T13:27:57Z",
-    "updated": "2023-01-03T13:35:30Z",
+    "updated": "2023-01-03T16:00:57Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 2,
+    "version": 3,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1414,7 +1414,7 @@
             "barAlignment": -1,
             "drawStyle": "bars",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1667,6 +1667,6 @@
   "timezone": "browser",
   "title": "Energimängd - Förra veckan",
   "uid": "lDEdY3tVk",
-  "version": 2,
+  "version": 3,
   "weekStart": "monday"
 }

@@ -5,20 +5,20 @@
     "canEdit": true,
     "canAdmin": true,
     "canStar": false,
-    "slug": "energimangd-intag-till-huset-over-tid-per-dag",
-    "url": "/d/MW-5fqp4z/energimangd-intag-till-huset-over-tid-per-dag",
+    "slug": "elkonsumptionsavgift-over-tid-medel-per-dag",
+    "url": "/d/9xJ0q3pVk/elkonsumptionsavgift-over-tid-medel-per-dag",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2023-01-03T13:11:31Z",
-    "updated": "2023-01-03T15:57:41Z",
+    "created": "2023-01-03T16:08:26Z",
+    "updated": "2023-01-03T16:09:09Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 5,
+    "version": 2,
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 48,
-    "folderUid": "Tow-zqpVk",
-    "folderTitle": "Energimängd",
-    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
+    "folderId": 51,
+    "folderUid": "d0uUk3pVk",
+    "folderTitle": "Energipris",
+    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "provisioned": false,
     "provisionedExternalId": ""
   },
@@ -44,71 +44,10 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 59,
+  "id": 71,
   "links": [],
   "liveNow": false,
   "panels": [
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "red",
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 0,
-        "y": 0
-      },
-      "id": 40,
-      "maxDataPoints": 9000,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
-          "refId": "A"
-        }
-      ],
-      "title": "Total energimängd intag till huset 2022",
-      "type": "stat"
-    },
     {
       "fieldConfig": {
         "defaults": {
@@ -131,14 +70,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 8,
+        "w": 8,
+        "x": 0,
         "y": 0
       },
       "id": 32,
@@ -163,11 +102,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max energimängd/dag",
+      "title": "Max elkonsumptionsavgift - 2022",
       "type": "stat"
     },
     {
@@ -192,14 +131,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 12,
+        "x": 8,
         "y": 0
       },
       "id": 33,
@@ -224,11 +163,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
-      "title": "Medel energimängd/dag",
+      "title": "Medel elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -253,14 +192,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 16,
+        "x": 12,
         "y": 0
       },
       "id": 34,
@@ -285,72 +224,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
-      "title": "Min energimängd/dag",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "orange",
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 0,
-        "y": 3
-      },
-      "id": 27,
-      "maxDataPoints": 9000,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
-          "refId": "A"
-        }
-      ],
-      "title": "Total energimängd intag till huset 2023",
+      "title": "Min elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -375,14 +253,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 8,
+        "w": 8,
+        "x": 0,
         "y": 3
       },
       "id": 41,
@@ -407,11 +285,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max energimängd/dag",
+      "title": "Max elkonsumptionsavgift - 2023",
       "type": "stat"
     },
     {
@@ -436,14 +314,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 12,
+        "x": 8,
         "y": 3
       },
       "id": 42,
@@ -468,11 +346,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
-      "title": "Medel energimängd/dag",
+      "title": "Medel elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -497,14 +375,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 16,
+        "x": 12,
         "y": 3
       },
       "id": 43,
@@ -529,72 +407,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
-      "title": "Min energimängd/dag",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "yellow",
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 0,
-        "y": 6
-      },
-      "id": 44,
-      "maxDataPoints": 9000,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
-          "refId": "A"
-        }
-      ],
-      "title": "Total energimängd intag till huset 2024",
+      "title": "Min elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -619,14 +436,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 8,
+        "w": 8,
+        "x": 0,
         "y": 6
       },
       "id": 50,
@@ -651,11 +468,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max energimängd/dag",
+      "title": "Max elkonsumptionsavgift - 2024",
       "type": "stat"
     },
     {
@@ -680,14 +497,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 12,
+        "x": 8,
         "y": 6
       },
       "id": 48,
@@ -712,11 +529,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
-      "title": "Medel energimängd/dag",
+      "title": "Medel elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -741,14 +558,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 16,
+        "x": 12,
         "y": 6
       },
       "id": 49,
@@ -773,72 +590,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
-      "title": "Min energimängd/dag",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "green",
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 0,
-        "y": 9
-      },
-      "id": 45,
-      "maxDataPoints": 9000,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
-          "refId": "A"
-        }
-      ],
-      "title": "Total energimängd intag till huset 2025",
+      "title": "Min elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -863,14 +619,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 8,
+        "w": 8,
+        "x": 0,
         "y": 9
       },
       "id": 47,
@@ -895,11 +651,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max energimängd/dag",
+      "title": "Max elkonsumptionsavgift - 2025",
       "type": "stat"
     },
     {
@@ -924,14 +680,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 12,
+        "x": 8,
         "y": 9
       },
       "id": 51,
@@ -956,11 +712,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
-      "title": "Medel energimängd/dag",
+      "title": "Medel elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -985,14 +741,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 16,
+        "x": 12,
         "y": 9
       },
       "id": 52,
@@ -1017,72 +773,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
-      "title": "Min energimängd/dag",
-      "type": "stat"
-    },
-    {
-      "fieldConfig": {
-        "defaults": {
-          "color": {
-            "fixedColor": "blue",
-            "mode": "fixed"
-          },
-          "mappings": [],
-          "thresholds": {
-            "mode": "absolute",
-            "steps": [
-              {
-                "color": "green",
-                "value": null
-              },
-              {
-                "color": "red",
-                "value": 80
-              }
-            ]
-          },
-          "unit": "kwatth"
-        },
-        "overrides": []
-      },
-      "gridPos": {
-        "h": 3,
-        "w": 8,
-        "x": 0,
-        "y": 12
-      },
-      "id": 46,
-      "maxDataPoints": 9000,
-      "options": {
-        "colorMode": "value",
-        "graphMode": "none",
-        "justifyMode": "auto",
-        "orientation": "auto",
-        "reduceOptions": {
-          "calcs": [
-            "lastNotNull"
-          ],
-          "fields": "",
-          "values": false
-        },
-        "textMode": "auto"
-      },
-      "pluginVersion": "8.3.3",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "fF56nY-7z"
-          },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> cumulativeSum()",
-          "refId": "A"
-        }
-      ],
-      "title": "Total energimängd intag till huset 2026",
+      "title": "Min elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -1107,14 +802,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
-        "w": 4,
-        "x": 8,
+        "w": 8,
+        "x": 0,
         "y": 12
       },
       "id": 53,
@@ -1139,11 +834,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> max()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: max, createEmpty: true)\r\n |> max()",
           "refId": "A"
         }
       ],
-      "title": "Max energimängd/dag",
+      "title": "Max elkonsumptionsavgift - 2026",
       "type": "stat"
     },
     {
@@ -1168,14 +863,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 12,
+        "x": 8,
         "y": 12
       },
       "id": 54,
@@ -1200,11 +895,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: true)\r\n |> mean()",
           "refId": "A"
         }
       ],
-      "title": "Medel energimängd/dag",
+      "title": "Medel elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -1229,14 +924,14 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": []
       },
       "gridPos": {
         "h": 3,
         "w": 4,
-        "x": 16,
+        "x": 12,
         "y": 12
       },
       "id": 55,
@@ -1261,11 +956,11 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: true)\r\n |> min()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1d, fn: min, createEmpty: true)\r\n |> min()",
           "refId": "A"
         }
       ],
-      "title": "Min energimängd/dag",
+      "title": "Min elkonsumptionsavgift",
       "type": "stat"
     },
     {
@@ -1320,13 +1015,13 @@
               }
             ]
           },
-          "unit": "kwatth"
+          "unit": "öre/kWh"
         },
         "overrides": [
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2022"
+              "options": "Elkonsumptionsavgift 2022"
             },
             "properties": [
               {
@@ -1341,7 +1036,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2023"
+              "options": "Elkonsumptionsavgift 2023"
             },
             "properties": [
               {
@@ -1356,7 +1051,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2024"
+              "options": "Elkonsumptionsavgift 2024"
             },
             "properties": [
               {
@@ -1371,7 +1066,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2025"
+              "options": "Elkonsumptionsavgift 2025"
             },
             "properties": [
               {
@@ -1386,7 +1081,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2026"
+              "options": "Elkonsumptionsavgift 2026"
             },
             "properties": [
               {
@@ -1425,7 +1120,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2022\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift 2022\",\r\n }))\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)",
           "refId": "B"
         },
         {
@@ -1434,7 +1129,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2023\",\r\n }))\r\n |> timeShift(duration: -1y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift 2023\",\r\n }))\r\n |> timeShift(duration: -1y)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)",
           "refId": "A"
         },
         {
@@ -1443,7 +1138,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2024\",\r\n }))\r\n |> timeShift(duration: -2y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift 2024\",\r\n }))\r\n |> timeShift(duration: -2y)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)",
           "refId": "C"
         },
         {
@@ -1452,7 +1147,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2025\",\r\n }))\r\n |> timeShift(duration: -3y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift 2025\",\r\n }))\r\n |> timeShift(duration: -3y)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)",
           "refId": "D"
         },
         {
@@ -1461,7 +1156,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2026\",\r\n }))\r\n |> timeShift(duration: -4y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_rate_summary\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Elkonsumptionsavgift 2026\",\r\n }))\r\n |> timeShift(duration: -4y)\r\n |> aggregateWindow(every: 1d, fn: mean, createEmpty: false)",
           "refId": "E"
         }
       ],
@@ -1496,8 +1191,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energimängd intag till huset - Över tid - Per dag",
-  "uid": "MW-5fqp4z",
-  "version": 5,
+  "title": "Elkonsumptionsavgift - Över tid - Medel - Per dag",
+  "uid": "9xJ0q3pVk",
+  "version": 2,
   "weekStart": "monday"
 }

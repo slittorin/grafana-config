@@ -9,10 +9,10 @@
     "url": "/d/Li7PZ6L7z/energipris-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-11T11:22:09Z",
-    "updated": "2023-01-03T14:27:36Z",
+    "updated": "2023-01-03T16:03:00Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 26,
+    "version": 27,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 51,
@@ -611,7 +611,7 @@
             "barAlignment": -1,
             "drawStyle": "line",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -990,6 +990,6 @@
   "timezone": "browser",
   "title": "Energipris - Denna månad",
   "uid": "Li7PZ6L7z",
-  "version": 26,
+  "version": 27,
   "weekStart": "monday"
 }

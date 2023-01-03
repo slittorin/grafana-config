@@ -9,10 +9,10 @@
     "url": "/d/zja-8UBnz/energimangd-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:57:23Z",
-    "updated": "2023-01-03T14:52:20Z",
+    "updated": "2023-01-03T16:00:29Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 31,
+    "version": 32,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1307,7 +1307,7 @@
             "barAlignment": 0,
             "drawStyle": "line",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1560,6 +1560,6 @@
   "timezone": "browser",
   "title": "Energimängd - Detta år - Per månad",
   "uid": "zja-8UBnz",
-  "version": 31,
+  "version": 32,
   "weekStart": "monday"
 }

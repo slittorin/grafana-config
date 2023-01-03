@@ -9,10 +9,10 @@
     "url": "/d/uXvXc8B7z/energimangd-idag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T10:31:52Z",
-    "updated": "2023-01-03T12:59:28Z",
+    "updated": "2023-01-03T16:01:27Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 58,
+    "version": 59,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -787,7 +787,7 @@
             "barAlignment": -1,
             "drawStyle": "bars",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1139,6 +1139,6 @@
   "timezone": "browser",
   "title": "Energimängd - Idag",
   "uid": "uXvXc8B7z",
-  "version": 58,
+  "version": 59,
   "weekStart": "monday"
 }

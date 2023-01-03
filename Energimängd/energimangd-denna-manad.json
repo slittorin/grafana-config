@@ -9,10 +9,10 @@
     "url": "/d/6F5jEUfnk/energimangd-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:27:46Z",
-    "updated": "2023-01-03T12:36:51Z",
+    "updated": "2023-01-03T16:01:17Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 24,
+    "version": 25,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1414,7 +1414,7 @@
             "barAlignment": -1,
             "drawStyle": "line",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1667,6 +1667,6 @@
   "timezone": "browser",
   "title": "Energimängd - Denna månad",
   "uid": "6F5jEUfnk",
-  "version": 24,
+  "version": 25,
   "weekStart": "monday"
 }

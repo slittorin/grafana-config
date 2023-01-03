@@ -9,10 +9,10 @@
     "url": "/d/7JAKQ3tVk/energimangd-forra-aret-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T14:38:18Z",
-    "updated": "2023-01-03T14:52:40Z",
+    "updated": "2023-01-03T15:58:57Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 2,
+    "version": 3,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1311,7 +1311,7 @@
             "barAlignment": -1,
             "drawStyle": "line",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1564,6 +1564,6 @@
   "timezone": "browser",
   "title": "Energimängd - Förra året - Per dag",
   "uid": "7JAKQ3tVk",
-  "version": 2,
+  "version": 3,
   "weekStart": "monday"
 }

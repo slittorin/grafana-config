@@ -9,10 +9,10 @@
     "url": "/d/ra36z3pVk/energimangd-anvant-av-huset-over-tid-per-dag",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T07:50:02Z",
-    "updated": "2023-01-03T14:54:11Z",
+    "updated": "2023-01-03T15:56:20Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 28,
+    "version": 30,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1281,7 +1281,7 @@
             "barAlignment": -1,
             "drawStyle": "line",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1498,6 +1498,6 @@
   "timezone": "browser",
   "title": "Energimängd använt av huset - Över tid - Per dag",
   "uid": "ra36z3pVk",
-  "version": 28,
+  "version": 30,
   "weekStart": "monday"
 }

@@ -9,10 +9,10 @@
     "url": "/d/hk3PBUBnk/energimangd-igar",
     "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T12:49:17Z",
-    "updated": "2023-01-03T12:58:47Z",
+    "updated": "2023-01-03T16:01:36Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 53,
+    "version": 54,
     "hasAcl": false,
     "isFolder": false,
     "folderId": 48,
@@ -1291,7 +1291,7 @@
             "barAlignment": -1,
             "drawStyle": "bars",
             "fillOpacity": 20,
-            "gradientMode": "none",
+            "gradientMode": "opacity",
             "hideFrom": {
               "legend": false,
               "tooltip": false,
@@ -1606,6 +1606,6 @@
   "timezone": "browser",
   "title": "Energimängd - Igår",
   "uid": "hk3PBUBnk",
-  "version": 53,
+  "version": 54,
   "weekStart": "monday"
 }
