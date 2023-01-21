@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "effekt-igar",
-    "url": "/d/mtpwJZY7k/effekt-igar",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-28T18:29:52Z",
-    "updated": "2023-01-03T07:44:59Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 21,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 47,
+    "folderTitle": "Effekt",
+    "folderUid": "LX4-k3t4k",
+    "folderUrl": "/dashboards/f/LX4-k3t4k/effekt",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 47,
-    "folderUid": "LX4-k3t4k",
-    "folderTitle": "Effekt",
-    "folderUrl": "/dashboards/f/LX4-k3t4k/effekt",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "effekt-igar",
+    "type": "db",
+    "updated": "2023-01-03T07:44:59Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/mtpwJZY7k/effekt-igar",
+    "version": 21
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 18,
+  "id": 54,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -820,6 +820,6 @@
   "timezone": "browser",
   "title": "Effekt - Igår",
   "uid": "mtpwJZY7k",
-  "version": 21,
+  "version": 2,
   "weekStart": "monday"
 }

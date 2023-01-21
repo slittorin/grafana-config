@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "elbilsladdning-idag",
-    "url": "/d/MParoDIVz/elbilsladdning-idag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-10-12T18:34:39Z",
-    "updated": "2023-01-03T07:45:35Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 18,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 49,
+    "folderTitle": "Elbilsladdning",
+    "folderUid": "Ylmyz3pVk",
+    "folderUrl": "/dashboards/f/Ylmyz3pVk/elbilsladdning",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 49,
-    "folderUid": "Ylmyz3pVk",
-    "folderTitle": "Elbilsladdning",
-    "folderUrl": "/dashboards/f/Ylmyz3pVk/elbilsladdning",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "elbilsladdning-idag",
+    "type": "db",
+    "updated": "2023-01-03T07:45:35Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/MParoDIVz/elbilsladdning-idag",
+    "version": 18
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 38,
+  "id": 60,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -464,6 +464,6 @@
   "timezone": "browser",
   "title": "Elbilsladdning - Idag",
   "uid": "MParoDIVz",
-  "version": 18,
+  "version": 3,
   "weekStart": "monday"
 }

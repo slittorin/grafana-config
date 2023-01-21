@@ -8,17 +8,17 @@
     "slug": "energimangd-intag-till-huset-over-tid-per-manad",
     "url": "/d/UqN8fqt4z/energimangd-intag-till-huset-over-tid-per-manad",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2023-01-03T13:17:54Z",
-    "updated": "2023-01-03T15:57:51Z",
+    "created": "2023-01-17T15:07:00Z",
+    "updated": "2023-01-21T15:33:05Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 4,
+    "version": 3,
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 48,
-    "folderUid": "Tow-zqpVk",
+    "folderId": 69,
+    "folderUid": "HKMO9iT4k",
     "folderTitle": "Energimängd",
-    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
+    "folderUrl": "/dashboards/f/HKMO9iT4k/energimangd",
     "provisioned": false,
     "provisionedExternalId": ""
   },
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 61,
+  "id": 86,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1326,7 +1326,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2022"
+              "options": "Intag till huset 2022"
             },
             "properties": [
               {
@@ -1341,7 +1341,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2023"
+              "options": "Intag till huset 2023"
             },
             "properties": [
               {
@@ -1356,7 +1356,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2024"
+              "options": "Intag till huset 2024"
             },
             "properties": [
               {
@@ -1371,7 +1371,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2025"
+              "options": "Intag till huset 2025"
             },
             "properties": [
               {
@@ -1386,7 +1386,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "Använt av huset 2026"
+              "options": "Intag till huset 2026"
             },
             "properties": [
               {
@@ -1425,7 +1425,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2022\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2022-01-01T00:00:00Z, stop: 2022-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag till huset 2022\",\r\n }))\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "B"
         },
         {
@@ -1434,7 +1434,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2023\",\r\n }))\r\n |> timeShift(duration: -1y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2023-01-01T00:00:00Z, stop: 2023-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag till huset 2023\",\r\n }))\r\n |> timeShift(duration: -1y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "A"
         },
         {
@@ -1443,7 +1443,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2024\",\r\n }))\r\n |> timeShift(duration: -2y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2024-01-01T00:00:00Z, stop: 2024-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag till huset 2024\",\r\n }))\r\n |> timeShift(duration: -2y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "C"
         },
         {
@@ -1452,7 +1452,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2025\",\r\n }))\r\n |> timeShift(duration: -3y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2025-01-01T00:00:00Z, stop: 2025-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag till huset 2025\",\r\n }))\r\n |> timeShift(duration: -3y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "D"
         },
         {
@@ -1461,7 +1461,7 @@
             "uid": "fF56nY-7z"
           },
           "hide": false,
-          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Använt av huset 2026\",\r\n }))\r\n |> timeShift(duration: -4y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: 2026-01-01T00:00:00Z, stop: 2026-12-31T23:59:59.999Z)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> map(fn: (r) => ({\r\n _value: r._value,\r\n _time: r._time,\r\n _field: \"Intag till huset 2026\",\r\n }))\r\n |> timeShift(duration: -4y)\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: false)\r\n |> aggregateWindow(every: 1d, fn: sum, createEmpty: false)\r\n |> aggregateWindow(every: 1mo, fn: sum, createEmpty: false)",
           "refId": "E"
         }
       ],
@@ -1498,6 +1498,6 @@
   "timezone": "browser",
   "title": "Energimängd intag till huset - Över tid - Per månad",
   "uid": "UqN8fqt4z",
-  "version": 4,
+  "version": 3,
   "weekStart": "monday"
 }

@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "stromstyrka-igar",
-    "url": "/d/jefOYfpVk/stromstyrka-igar",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-12-30T16:15:31Z",
-    "updated": "2023-01-03T07:47:02Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 7,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 53,
+    "folderTitle": "Strömstyrka",
+    "folderUid": "2fm_k3t4k",
+    "folderUrl": "/dashboards/f/2fm_k3t4k/stromstyrka",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 53,
-    "folderUid": "2fm_k3t4k",
-    "folderTitle": "Strömstyrka",
-    "folderUrl": "/dashboards/f/2fm_k3t4k/stromstyrka",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "stromstyrka-igar",
+    "type": "db",
+    "updated": "2023-01-03T07:47:02Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/jefOYfpVk/stromstyrka-igar",
+    "version": 7
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 45,
+  "id": 107,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1299,6 +1299,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - Igår",
   "uid": "jefOYfpVk",
-  "version": 7,
+  "version": 1,
   "weekStart": "monday"
 }

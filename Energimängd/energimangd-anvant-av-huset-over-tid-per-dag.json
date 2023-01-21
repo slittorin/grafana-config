@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energimangd-anvant-av-huset-over-tid-per-dag",
-    "url": "/d/ra36z3pVk/energimangd-anvant-av-huset-over-tid-per-dag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T07:50:02Z",
-    "updated": "2023-01-03T15:56:20Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 30,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 48,
+    "folderTitle": "Energimängd",
+    "folderUid": "Tow-zqpVk",
+    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 48,
-    "folderUid": "Tow-zqpVk",
-    "folderTitle": "Energimängd",
-    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energimangd-anvant-av-huset-over-tid-per-dag",
+    "type": "db",
+    "updated": "2023-01-03T15:56:20Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/ra36z3pVk/energimangd-anvant-av-huset-over-tid-per-dag",
+    "version": 30
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 54,
+  "id": 70,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1498,6 +1498,6 @@
   "timezone": "browser",
   "title": "Energimängd använt av huset - Över tid - Per dag",
   "uid": "ra36z3pVk",
-  "version": 30,
+  "version": 2,
   "weekStart": "monday"
 }

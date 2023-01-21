@@ -8,17 +8,17 @@
     "slug": "energikostnad-detta-ar-per-dag",
     "url": "/d/r9GfsPfnz/energikostnad-detta-ar-per-dag",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-02-23T19:01:43Z",
-    "updated": "2023-01-03T15:07:51Z",
+    "created": "2023-01-17T15:00:21Z",
+    "updated": "2023-01-21T13:58:07Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 34,
+    "version": 6,
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 50,
-    "folderUid": "LsWUk3t4z",
+    "folderId": 62,
+    "folderUid": "47YMriTVz",
     "folderTitle": "Energikostnad",
-    "folderUrl": "/dashboards/f/LsWUk3t4z/energikostnad",
+    "folderUrl": "/dashboards/f/47YMriTVz/energikostnad",
     "provisioned": false,
     "provisionedExternalId": ""
   },
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 8,
+  "id": 64,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1051,7 +1051,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": -1,
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -1059,7 +1059,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "stepBefore",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -1288,8 +1288,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energikostnad - Detta år per dag",
+  "title": "Energikostnad - Detta år - Per dag",
   "uid": "r9GfsPfnz",
-  "version": 34,
+  "version": 6,
   "weekStart": "monday"
 }

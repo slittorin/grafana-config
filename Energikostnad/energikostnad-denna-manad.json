@@ -8,17 +8,17 @@
     "slug": "energikostnad-denna-manad",
     "url": "/d/m2XBgEB7k/energikostnad-denna-manad",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-02-23T12:20:09Z",
-    "updated": "2023-01-03T07:46:00Z",
+    "created": "2023-01-17T15:00:09Z",
+    "updated": "2023-01-21T13:22:09Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 36,
+    "version": 3,
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 50,
-    "folderUid": "LsWUk3t4z",
+    "folderId": 62,
+    "folderUid": "47YMriTVz",
     "folderTitle": "Energikostnad",
-    "folderUrl": "/dashboards/f/LsWUk3t4z/energikostnad",
+    "folderUrl": "/dashboards/f/47YMriTVz/energikostnad",
     "provisioned": false,
     "provisionedExternalId": ""
   },
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 6,
+  "id": 63,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1173,7 +1173,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": -1,
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -1181,7 +1181,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "stepBefore",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -1412,6 +1412,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Denna månad",
   "uid": "m2XBgEB7k",
-  "version": 36,
+  "version": 3,
   "weekStart": "monday"
 }

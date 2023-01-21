@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energipris-detta-ar-per-dag",
-    "url": "/d/8wTfKJE7k/energipris-detta-ar-per-dag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-18T13:27:23Z",
-    "updated": "2023-01-03T16:02:47Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 16,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 51,
+    "folderTitle": "Energipris",
+    "folderUid": "d0uUk3pVk",
+    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 51,
-    "folderUid": "d0uUk3pVk",
-    "folderTitle": "Energipris",
-    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energipris-detta-ar-per-dag",
+    "type": "db",
+    "updated": "2023-01-03T16:02:47Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/8wTfKJE7k/energipris-detta-ar-per-dag",
+    "version": 16
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 36,
+  "id": 92,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -989,6 +989,6 @@
   "timezone": "browser",
   "title": "Energipris - Detta år - Per dag",
   "uid": "8wTfKJE7k",
-  "version": 16,
+  "version": 2,
   "weekStart": "monday"
 }

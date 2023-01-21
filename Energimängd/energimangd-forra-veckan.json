@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energimangd-forra-veckan",
-    "url": "/d/lDEdY3tVk/energimangd-forra-veckan",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T13:27:57Z",
-    "updated": "2023-01-03T16:00:57Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 3,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 48,
+    "folderTitle": "Energimängd",
+    "folderUid": "Tow-zqpVk",
+    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 48,
-    "folderUid": "Tow-zqpVk",
-    "folderTitle": "Energimängd",
-    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energimangd-forra-veckan",
+    "type": "db",
+    "updated": "2023-01-03T16:00:57Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/lDEdY3tVk/energimangd-forra-veckan",
+    "version": 3
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 64,
+  "id": 82,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1667,6 +1667,6 @@
   "timezone": "browser",
   "title": "Energimängd - Förra veckan",
   "uid": "lDEdY3tVk",
-  "version": 3,
+  "version": 2,
   "weekStart": "monday"
 }

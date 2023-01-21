@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "effekt-detta-ar-per-dag",
-    "url": "/d/zPhDDHL7z/effekt-detta-ar-per-dag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T14:37:32Z",
-    "updated": "2023-01-03T07:44:59Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 16,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 47,
+    "folderTitle": "Effekt",
+    "folderUid": "LX4-k3t4k",
+    "folderUrl": "/dashboards/f/LX4-k3t4k/effekt",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 47,
-    "folderUid": "LX4-k3t4k",
-    "folderTitle": "Effekt",
-    "folderUrl": "/dashboards/f/LX4-k3t4k/effekt",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "effekt-detta-ar-per-dag",
+    "type": "db",
+    "updated": "2023-01-03T07:44:59Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/zPhDDHL7z/effekt-detta-ar-per-dag",
+    "version": 16
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 22,
+  "id": 50,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -704,6 +704,6 @@
   "timezone": "browser",
   "title": "Effekt - Detta år per dag",
   "uid": "zPhDDHL7z",
-  "version": 16,
+  "version": 2,
   "weekStart": "monday"
 }

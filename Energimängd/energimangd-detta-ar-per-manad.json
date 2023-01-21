@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energimangd-detta-ar-per-manad",
-    "url": "/d/zja-8UBnz/energimangd-detta-ar-per-manad",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-24T13:57:23Z",
-    "updated": "2023-01-03T16:00:29Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 32,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 48,
+    "folderTitle": "Energimängd",
+    "folderUid": "Tow-zqpVk",
+    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 48,
-    "folderUid": "Tow-zqpVk",
-    "folderTitle": "Energimängd",
-    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energimangd-detta-ar-per-manad",
+    "type": "db",
+    "updated": "2023-01-03T16:00:29Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/zja-8UBnz/energimangd-detta-ar-per-manad",
+    "version": 32
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 17,
+  "id": 76,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1560,6 +1560,6 @@
   "timezone": "browser",
   "title": "Energimängd - Detta år - Per månad",
   "uid": "zja-8UBnz",
-  "version": 32,
+  "version": 2,
   "weekStart": "monday"
 }

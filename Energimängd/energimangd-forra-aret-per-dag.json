@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energimangd-forra-aret-per-dag",
-    "url": "/d/7JAKQ3tVk/energimangd-forra-aret-per-dag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T14:38:18Z",
-    "updated": "2023-01-03T15:58:57Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 3,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 48,
+    "folderTitle": "Energimängd",
+    "folderUid": "Tow-zqpVk",
+    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 48,
-    "folderUid": "Tow-zqpVk",
-    "folderTitle": "Energimängd",
-    "folderUrl": "/dashboards/f/Tow-zqpVk/energimangd",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energimangd-forra-aret-per-dag",
+    "type": "db",
+    "updated": "2023-01-03T15:58:57Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/7JAKQ3tVk/energimangd-forra-aret-per-dag",
+    "version": 3
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 65,
+  "id": 78,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1564,6 +1564,6 @@
   "timezone": "browser",
   "title": "Energimängd - Förra året - Per dag",
   "uid": "7JAKQ3tVk",
-  "version": 3,
+  "version": 2,
   "weekStart": "monday"
 }

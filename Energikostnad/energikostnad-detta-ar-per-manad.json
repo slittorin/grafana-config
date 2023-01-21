@@ -8,17 +8,17 @@
     "slug": "energikostnad-detta-ar-per-manad",
     "url": "/d/_UmfEEBnk/energikostnad-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-02-23T18:44:12Z",
-    "updated": "2023-01-03T15:06:10Z",
+    "created": "2023-01-17T15:00:39Z",
+    "updated": "2023-01-21T13:57:57Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 35,
+    "version": 5,
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 50,
-    "folderUid": "LsWUk3t4z",
+    "folderId": 62,
+    "folderUid": "47YMriTVz",
     "folderTitle": "Energikostnad",
-    "folderUrl": "/dashboards/f/LsWUk3t4z/energikostnad",
+    "folderUrl": "/dashboards/f/47YMriTVz/energikostnad",
     "provisioned": false,
     "provisionedExternalId": ""
   },
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 7,
+  "id": 65,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -224,7 +224,7 @@
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> mean()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"electrical_consumption_intake_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last)\r\n |> aggregateWindow(every: 1d, fn: last)\r\n |> aggregateWindow(every: 1mo, fn: sum)\r\n |> mean()",
           "refId": "A"
         }
       ],
@@ -1051,7 +1051,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": -1,
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -1059,7 +1059,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "stepBefore",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -1276,8 +1276,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Energikostnad - Detta år per månad",
+  "title": "Energikostnad - Detta år - Per månad",
   "uid": "_UmfEEBnk",
-  "version": 35,
+  "version": 5,
   "weekStart": "monday"
 }

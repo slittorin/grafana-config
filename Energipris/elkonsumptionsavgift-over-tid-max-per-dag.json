@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "elkonsumptionsavgift-over-tid-max-per-dag",
-    "url": "/d/Hu-8Xqp4z/elkonsumptionsavgift-over-tid-max-per-dag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T15:20:25Z",
-    "updated": "2023-01-03T16:06:24Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 10,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 51,
+    "folderTitle": "Energipris",
+    "folderUid": "d0uUk3pVk",
+    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 51,
-    "folderUid": "d0uUk3pVk",
-    "folderTitle": "Energipris",
-    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "elkonsumptionsavgift-over-tid-max-per-dag",
+    "type": "db",
+    "updated": "2023-01-03T16:06:24Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/Hu-8Xqp4z/elkonsumptionsavgift-over-tid-max-per-dag",
+    "version": 10
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 70,
+  "id": 89,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1193,6 +1193,6 @@
   "timezone": "browser",
   "title": "Elkonsumptionsavgift - Över tid - Max - Per dag",
   "uid": "Hu-8Xqp4z",
-  "version": 10,
+  "version": 2,
   "weekStart": "monday"
 }

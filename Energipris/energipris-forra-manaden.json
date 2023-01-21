@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energipris-forra-manaden",
-    "url": "/d/nBajOJE7z/energipris-forra-manaden",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-18T13:14:53Z",
-    "updated": "2023-01-03T16:03:17Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 16,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 51,
+    "folderTitle": "Energipris",
+    "folderUid": "d0uUk3pVk",
+    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 51,
-    "folderUid": "d0uUk3pVk",
-    "folderTitle": "Energipris",
-    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energipris-forra-manaden",
+    "type": "db",
+    "updated": "2023-01-03T16:03:17Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/nBajOJE7z/energipris-forra-manaden",
+    "version": 16
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 33,
+  "id": 96,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -989,6 +989,6 @@
   "timezone": "browser",
   "title": "Energipris - Förra månaden",
   "uid": "nBajOJE7z",
-  "version": 16,
+  "version": 1,
   "weekStart": "monday"
 }

@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "effekt-denna-manad",
-    "url": "/d/xAkVDHL7k/effekt-denna-manad",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-02T14:35:40Z",
-    "updated": "2023-01-03T07:44:59Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 11,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 47,
+    "folderTitle": "Effekt",
+    "folderUid": "LX4-k3t4k",
+    "folderUrl": "/dashboards/f/LX4-k3t4k/effekt",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 47,
-    "folderUid": "LX4-k3t4k",
-    "folderTitle": "Effekt",
-    "folderUrl": "/dashboards/f/LX4-k3t4k/effekt",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "effekt-denna-manad",
+    "type": "db",
+    "updated": "2023-01-03T07:44:59Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/xAkVDHL7k/effekt-denna-manad",
+    "version": 11
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 21,
+  "id": 49,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -704,6 +704,6 @@
   "timezone": "browser",
   "title": "Effekt - Denna månad",
   "uid": "xAkVDHL7k",
-  "version": 11,
+  "version": 2,
   "weekStart": "monday"
 }

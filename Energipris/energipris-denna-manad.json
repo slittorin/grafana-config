@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energipris-denna-manad",
-    "url": "/d/Li7PZ6L7z/energipris-denna-manad",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-11T11:22:09Z",
-    "updated": "2023-01-03T16:03:00Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 27,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 51,
+    "folderTitle": "Energipris",
+    "folderUid": "d0uUk3pVk",
+    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 51,
-    "folderUid": "d0uUk3pVk",
-    "folderTitle": "Energipris",
-    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energipris-denna-manad",
+    "type": "db",
+    "updated": "2023-01-03T16:03:00Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/Li7PZ6L7z/energipris-denna-manad",
+    "version": 27
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 32,
+  "id": 91,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -990,6 +990,6 @@
   "timezone": "browser",
   "title": "Energipris - Denna månad",
   "uid": "Li7PZ6L7z",
-  "version": 27,
+  "version": 2,
   "weekStart": "monday"
 }

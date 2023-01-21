@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energipris-forra-aret-per-manad",
-    "url": "/d/fk5NXqtVk/energipris-forra-aret-per-manad",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-03T15:11:32Z",
-    "updated": "2023-01-03T16:03:41Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 3,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 51,
+    "folderTitle": "Energipris",
+    "folderUid": "d0uUk3pVk",
+    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 51,
-    "folderUid": "d0uUk3pVk",
-    "folderTitle": "Energipris",
-    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energipris-forra-aret-per-manad",
+    "type": "db",
+    "updated": "2023-01-03T16:03:41Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/fk5NXqtVk/energipris-forra-aret-per-manad",
+    "version": 3
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 69,
+  "id": 95,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -989,6 +989,6 @@
   "timezone": "browser",
   "title": "Energipris - Förra året - Per månad",
   "uid": "fk5NXqtVk",
-  "version": 3,
+  "version": 1,
   "weekStart": "monday"
 }

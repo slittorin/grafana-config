@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "elbilsladdning-igar",
-    "url": "/d/8NGXicSVk/elbilsladdning-igar",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-10-13T18:44:22Z",
-    "updated": "2023-01-03T07:45:35Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 17,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 49,
+    "folderTitle": "Elbilsladdning",
+    "folderUid": "Ylmyz3pVk",
+    "folderUrl": "/dashboards/f/Ylmyz3pVk/elbilsladdning",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 49,
-    "folderUid": "Ylmyz3pVk",
-    "folderTitle": "Elbilsladdning",
-    "folderUrl": "/dashboards/f/Ylmyz3pVk/elbilsladdning",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "elbilsladdning-igar",
+    "type": "db",
+    "updated": "2023-01-03T07:45:35Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/8NGXicSVk/elbilsladdning-igar",
+    "version": 17
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 39,
+  "id": 61,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -464,6 +464,6 @@
   "timezone": "browser",
   "title": "Elbilsladdning - Igår",
   "uid": "8NGXicSVk",
-  "version": 17,
+  "version": 3,
   "weekStart": "monday"
 }

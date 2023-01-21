@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energipris-igar",
-    "url": "/d/UVA2K1P7z/energipris-igar",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-18T13:24:07Z",
-    "updated": "2023-01-03T16:04:01Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 12,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 51,
+    "folderTitle": "Energipris",
+    "folderUid": "d0uUk3pVk",
+    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 51,
-    "folderUid": "d0uUk3pVk",
-    "folderTitle": "Energipris",
-    "folderUrl": "/dashboards/f/d0uUk3pVk/energipris",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energipris-igar",
+    "type": "db",
+    "updated": "2023-01-03T16:04:01Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/UVA2K1P7z/energipris-igar",
+    "version": 12
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 35,
+  "id": 98,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -779,6 +779,6 @@
   "timezone": "browser",
   "title": "Energipris - Igår",
   "uid": "UVA2K1P7z",
-  "version": 12,
+  "version": 2,
   "weekStart": "monday"
 }

@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "spabad-idag",
-    "url": "/d/Mvw60utVz/spabad-idag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2023-01-02T08:14:22Z",
-    "updated": "2023-01-03T07:46:41Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 6,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 52,
+    "folderTitle": "Spabad",
+    "folderUid": "xYJQz3tVk",
+    "folderUrl": "/dashboards/f/xYJQz3tVk/spabad",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 52,
-    "folderUid": "xYJQz3tVk",
-    "folderTitle": "Spabad",
-    "folderUrl": "/dashboards/f/xYJQz3tVk/spabad",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "spabad-idag",
+    "type": "db",
+    "updated": "2023-01-03T07:46:41Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/Mvw60utVz/spabad-idag",
+    "version": 6
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 46,
+  "id": 100,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -608,6 +608,6 @@
   "timezone": "browser",
   "title": "Spabad - Idag",
   "uid": "Mvw60utVz",
-  "version": 6,
+  "version": 2,
   "weekStart": "monday"
 }

@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "stromstyrka-ar-per-dag",
-    "url": "/d/LoFvYpY7k/stromstyrka-ar-per-dag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-03-04T16:43:24Z",
-    "updated": "2023-01-03T07:47:02Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 9,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 53,
+    "folderTitle": "Strömstyrka",
+    "folderUid": "2fm_k3t4k",
+    "folderUrl": "/dashboards/f/2fm_k3t4k/stromstyrka",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 53,
-    "folderUid": "2fm_k3t4k",
-    "folderTitle": "Strömstyrka",
-    "folderUrl": "/dashboards/f/2fm_k3t4k/stromstyrka",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "stromstyrka-ar-per-dag",
+    "type": "db",
+    "updated": "2023-01-03T07:47:02Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/LoFvYpY7k/stromstyrka-ar-per-dag",
+    "version": 9
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 30,
+  "id": 102,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -1086,6 +1086,6 @@
   "timezone": "browser",
   "title": "Strömstyrka - År per dag",
   "uid": "LoFvYpY7k",
-  "version": 9,
+  "version": 1,
   "weekStart": "monday"
 }

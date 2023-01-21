@@ -8,17 +8,17 @@
     "slug": "elbilsladdning-detta-ar-per-manad",
     "url": "/d/2pUWt-IVz/elbilsladdning-detta-ar-per-manad",
     "expires": "0001-01-01T00:00:00Z",
-    "created": "2022-10-16T14:58:31Z",
-    "updated": "2023-01-03T07:45:35Z",
+    "created": "2023-01-17T14:57:39Z",
+    "updated": "2023-01-21T15:08:02Z",
     "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 13,
+    "version": 5,
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 49,
-    "folderUid": "Ylmyz3pVk",
+    "folderId": 55,
+    "folderUid": "oY_3XiT4z",
     "folderTitle": "Elbilsladdning",
-    "folderUrl": "/dashboards/f/Ylmyz3pVk/elbilsladdning",
+    "folderUrl": "/dashboards/f/oY_3XiT4z/elbilsladdning",
     "provisioned": false,
     "provisionedExternalId": ""
   },
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 43,
+  "id": 58,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -301,7 +301,7 @@
             "axisLabel": "",
             "axisPlacement": "auto",
             "barAlignment": -1,
-            "drawStyle": "bars",
+            "drawStyle": "line",
             "fillOpacity": 20,
             "gradientMode": "none",
             "hideFrom": {
@@ -309,7 +309,7 @@
               "tooltip": false,
               "viz": false
             },
-            "lineInterpolation": "stepBefore",
+            "lineInterpolation": "smooth",
             "lineStyle": {
               "fill": "solid"
             },
@@ -462,8 +462,8 @@
     ]
   },
   "timezone": "browser",
-  "title": "Elbilsladdning - Detta år per månad",
+  "title": "Elbilsladdning - Detta år - Per månad",
   "uid": "2pUWt-IVz",
-  "version": 13,
+  "version": 5,
   "weekStart": "monday"
 }

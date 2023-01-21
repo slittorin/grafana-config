@@ -1,26 +1,26 @@
 {
   "meta": {
-    "type": "db",
-    "canSave": true,
-    "canEdit": true,
     "canAdmin": true,
+    "canEdit": true,
+    "canSave": true,
     "canStar": false,
-    "slug": "energikostnad-idag",
-    "url": "/d/5OFTMBB7k/energikostnad-idag",
-    "expires": "0001-01-01T00:00:00Z",
     "created": "2022-02-22T18:48:34Z",
-    "updated": "2023-01-03T07:46:00Z",
-    "updatedBy": "Anonymous",
     "createdBy": "Anonymous",
-    "version": 58,
+    "expires": "0001-01-01T00:00:00Z",
+    "folderId": 50,
+    "folderTitle": "Energikostnad",
+    "folderUid": "LsWUk3t4z",
+    "folderUrl": "/dashboards/f/LsWUk3t4z/energikostnad",
     "hasAcl": false,
     "isFolder": false,
-    "folderId": 50,
-    "folderUid": "LsWUk3t4z",
-    "folderTitle": "Energikostnad",
-    "folderUrl": "/dashboards/f/LsWUk3t4z/energikostnad",
     "provisioned": false,
-    "provisionedExternalId": ""
+    "provisionedExternalId": "",
+    "slug": "energikostnad-idag",
+    "type": "db",
+    "updated": "2023-01-03T07:46:00Z",
+    "updatedBy": "Anonymous",
+    "url": "/d/5OFTMBB7k/energikostnad-idag",
+    "version": 58
   },
   "annotations": {
     "list": [
@@ -44,7 +44,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 5,
+  "id": 67,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -925,6 +925,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Idag",
   "uid": "5OFTMBB7k",
-  "version": 58,
+  "version": 2,
   "weekStart": "monday"
 }
