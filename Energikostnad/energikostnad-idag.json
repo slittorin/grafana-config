@@ -1,26 +1,26 @@
 {
   "meta": {
-    "canAdmin": true,
-    "canEdit": true,
+    "type": "db",
     "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
     "canStar": false,
-    "created": "2022-02-22T18:48:34Z",
-    "createdBy": "Anonymous",
+    "slug": "energikostnad-idag",
+    "url": "/d/5OFTMBB7k/energikostnad-idag",
     "expires": "0001-01-01T00:00:00Z",
-    "folderId": 50,
-    "folderTitle": "Energikostnad",
-    "folderUid": "LsWUk3t4z",
-    "folderUrl": "/dashboards/f/LsWUk3t4z/energikostnad",
+    "created": "2023-01-17T15:01:33Z",
+    "updated": "2025-10-11T20:19:12Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 3,
     "hasAcl": false,
     "isFolder": false,
+    "folderId": 62,
+    "folderUid": "47YMriTVz",
+    "folderTitle": "Energikostnad",
+    "folderUrl": "/dashboards/f/47YMriTVz/energikostnad",
     "provisioned": false,
-    "provisionedExternalId": "",
-    "slug": "energikostnad-idag",
-    "type": "db",
-    "updated": "2023-01-03T07:46:00Z",
-    "updatedBy": "Anonymous",
-    "url": "/d/5OFTMBB7k/energikostnad-idag",
-    "version": 58
+    "provisionedExternalId": ""
   },
   "annotations": {
     "list": [
@@ -95,7 +95,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -156,7 +156,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -217,7 +217,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -243,7 +243,7 @@
         "content": " ",
         "mode": "markdown"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "transparent": true,
       "type": "text"
     },
@@ -294,14 +294,14 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
             "type": "influxdb",
             "uid": "fF56nY-7z"
           },
-          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> cumulativeSum()",
+          "query": "from(bucket: \"ha\")\r\n |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\r\n |> filter(fn: (r) => r[\"entity_id\"] == \"evcharger_consumption_cost_hour\")\r\n |> filter(fn: (r) => r[\"_field\"] == \"value\")\r\n |> aggregateWindow(every: 1h, fn: last, createEmpty: true)\r\n |> cumulativeSum()",
           "refId": "A"
         }
       ],
@@ -320,7 +320,7 @@
         "content": " ",
         "mode": "markdown"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "transparent": true,
       "type": "text"
     },
@@ -371,7 +371,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -432,7 +432,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -493,7 +493,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -554,7 +554,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -823,7 +823,8 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.3.3",
@@ -897,7 +898,7 @@
     }
   ],
   "refresh": "15m",
-  "schemaVersion": 34,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -925,6 +926,6 @@
   "timezone": "browser",
   "title": "Energikostnad - Idag",
   "uid": "5OFTMBB7k",
-  "version": 2,
+  "version": 3,
   "weekStart": "monday"
 }

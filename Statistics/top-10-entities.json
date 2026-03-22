@@ -1,0 +1,128 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": false,
+    "slug": "top-10-entities",
+    "url": "/d/zXXeIiXNz/top-10-entities",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2025-08-18T21:00:29Z",
+    "updated": "2025-08-18T21:00:29Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 1,
+    "hasAcl": false,
+    "isFolder": false,
+    "folderId": 130,
+    "folderUid": "1vHaSiuHk",
+    "folderTitle": "Statistics",
+    "folderUrl": "/dashboards/f/1vHaSiuHk/statistics",
+    "provisioned": false,
+    "provisionedExternalId": ""
+  },
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "hideControls": false,
+  "id": 131,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "8.4.11",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "from(bucket: \"ha\")\r\n |> range(start: -30d)\r\n |> filter(fn: (r) => exists r.entity_id)\r\n |> keep(columns: [\"_time\", \"_value\", \"entity_id\"])\r\n |> group(columns: [\"entity_id\"])\r\n |> count(column: \"_value\")\r\n |> rename(columns: {_value: \"row_count\"})\r\n |> sort(columns: [\"row_count\"], desc: true)\r\n |> limit(n: 10)",
+          "refId": "A"
+        }
+      ],
+      "title": "Panel Title",
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Top 10 entities",
+  "uid": "zXXeIiXNz",
+  "version": 1,
+  "weekStart": ""
+}

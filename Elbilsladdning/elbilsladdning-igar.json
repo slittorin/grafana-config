@@ -1,26 +1,26 @@
 {
   "meta": {
-    "canAdmin": true,
-    "canEdit": true,
+    "type": "db",
     "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
     "canStar": false,
-    "created": "2022-10-13T18:44:22Z",
-    "createdBy": "Anonymous",
+    "slug": "elbilsladdning-igar",
+    "url": "/d/8NGXicSVk/elbilsladdning-igar",
     "expires": "0001-01-01T00:00:00Z",
-    "folderId": 49,
-    "folderTitle": "Elbilsladdning",
-    "folderUid": "Ylmyz3pVk",
-    "folderUrl": "/dashboards/f/Ylmyz3pVk/elbilsladdning",
+    "created": "2023-01-17T14:58:32Z",
+    "updated": "2025-08-18T20:33:33Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 4,
     "hasAcl": false,
     "isFolder": false,
+    "folderId": 55,
+    "folderUid": "oY_3XiT4z",
+    "folderTitle": "Elbilsladdning",
+    "folderUrl": "/dashboards/f/oY_3XiT4z/elbilsladdning",
     "provisioned": false,
-    "provisionedExternalId": "",
-    "slug": "elbilsladdning-igar",
-    "type": "db",
-    "updated": "2023-01-03T07:45:35Z",
-    "updatedBy": "Anonymous",
-    "url": "/d/8NGXicSVk/elbilsladdning-igar",
-    "version": 17
+    "provisionedExternalId": ""
   },
   "annotations": {
     "list": [
@@ -94,7 +94,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -155,7 +155,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -215,7 +215,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -276,7 +276,7 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "8.3.3",
+      "pluginVersion": "8.4.11",
       "targets": [
         {
           "datasource": {
@@ -407,7 +407,8 @@
           "placement": "bottom"
         },
         "tooltip": {
-          "mode": "single"
+          "mode": "single",
+          "sort": "none"
         }
       },
       "pluginVersion": "8.3.3",
@@ -436,7 +437,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 34,
+  "schemaVersion": 35,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -447,7 +448,7 @@
     "to": "now/M"
   },
   "timepicker": {
-    "hidden": true,
+    "hidden": false,
     "refresh_intervals": [
       "5s",
       "10s",
@@ -464,6 +465,6 @@
   "timezone": "browser",
   "title": "Elbilsladdning - Igår",
   "uid": "8NGXicSVk",
-  "version": 3,
+  "version": 4,
   "weekStart": "monday"
 }

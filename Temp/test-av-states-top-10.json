@@ -1,0 +1,189 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": false,
+    "slug": "test-av-states-top-10",
+    "url": "/d/SBE6o2uNz/test-av-states-top-10",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2025-08-23T15:11:05Z",
+    "updated": "2025-08-24T20:28:17Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 5,
+    "hasAcl": false,
+    "isFolder": false,
+    "folderId": 10,
+    "folderUid": "rUbZp8Bnk",
+    "folderTitle": "Temp",
+    "folderUrl": "/dashboards/f/rUbZp8Bnk/temp",
+    "provisioned": false,
+    "provisionedExternalId": ""
+  },
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 132,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "mysql",
+        "uid": "hwqiT5XHk"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 12,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "interval": "1h",
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "8.4.11",
+      "targets": [
+        {
+          "datasource": {
+            "type": "mysql",
+            "uid": "hwqiT5XHk"
+          },
+          "format": "table",
+          "group": [
+            {
+              "params": [
+                "$__interval",
+                "none"
+              ],
+              "type": "time"
+            },
+            {
+              "params": [
+                "entity_id"
+              ],
+              "type": "column"
+            },
+            {
+              "params": [
+                "none"
+              ],
+              "type": "column"
+            }
+          ],
+          "hide": false,
+          "metricColumn": "none",
+          "rawQuery": true,
+          "rawSql": "SELECT\n sm.entity_id,\n COUNT(*) AS row_count,\n ROUND((COUNT(*) / total.total_count) Database-data Effekt Elbilsladdning Energikostnad Energimängd Energipris General Spabad Strömstyrka Temp 100, 2) AS percentage\nFROM\n states s\n JOIN states_meta sm ON s.metadata_id = sm.metadata_id\n CROSS JOIN (\n SELECT\n COUNT(*) AS total_count\n FROM\n states\n ) total\nGROUP BY\n sm.entity_id,\n total.total_count\nORDER BY\n percentage DESC\nLIMIT\n 20;",
+          "refId": "A",
+          "select": [
+            [
+              {
+                "params": [
+                  "entity_id"
+                ],
+                "type": "column"
+              },
+              {
+                "params": [
+                  "count"
+                ],
+                "type": "aggregate"
+              },
+              {
+                "params": [
+                  "count_rows"
+                ],
+                "type": "alias"
+              }
+            ]
+          ],
+          "table": "states",
+          "timeColumn": "last_updated",
+          "timeColumnType": "datetime",
+          "where": [
+            {
+              "name": "$__timeFilter",
+              "params": [],
+              "type": "macro"
+            }
+          ]
+        }
+      ],
+      "title": "Panel Title",
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Test - Av states top 10",
+  "uid": "SBE6o2uNz",
+  "version": 5,
+  "weekStart": ""
+}

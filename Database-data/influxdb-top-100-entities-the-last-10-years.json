@@ -1,0 +1,132 @@
+{
+  "meta": {
+    "type": "db",
+    "canSave": true,
+    "canEdit": true,
+    "canAdmin": true,
+    "canStar": false,
+    "slug": "influxdb-top-100-entities-the-last-10-years",
+    "url": "/d/51RfVfuHz/influxdb-top-100-entities-the-last-10-years",
+    "expires": "0001-01-01T00:00:00Z",
+    "created": "2025-08-25T20:22:52Z",
+    "updated": "2026-03-15T21:24:59Z",
+    "updatedBy": "Anonymous",
+    "createdBy": "Anonymous",
+    "version": 14,
+    "hasAcl": false,
+    "isFolder": false,
+    "folderId": 135,
+    "folderUid": "besHquXHk",
+    "folderTitle": "Database-data",
+    "folderUrl": "/dashboards/f/besHquXHk/database-data",
+    "provisioned": false,
+    "provisionedExternalId": ""
+  },
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": "-- Grafana --",
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 133,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "filterable": true
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 20,
+        "w": 17,
+        "x": 0,
+        "y": 0
+      },
+      "id": 2,
+      "options": {
+        "footer": {
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true
+      },
+      "pluginVersion": "8.4.11",
+      "targets": [
+        {
+          "datasource": {
+            "type": "influxdb",
+            "uid": "fF56nY-7z"
+          },
+          "query": "counts =\r\n from(bucket: \"ha\")\r\n |> range(start: -10y)\r\n |> filter(fn: (r) => exists r[\"entity_id\"])\r\n |> filter(fn: (r) => r[\"_field\"] == \"state\")\r\n |> group(columns: [\"entity_id\", \"domain\"]) // ← group on both\r\n |> count()\r\n |> keep(columns: [\"entity_id\", \"domain\", \"_value\"])\r\n |> group(columns: [])\r\n\r\ntotal =\r\n counts\r\n |> sum(column: \"_value\")\r\n |> findRecord(fn: (key) => true, idx: 0)\r\n\r\nfirst_times =\r\n from(bucket: \"ha\")\r\n |> range(start: -10y)\r\n |> filter(fn: (r) => exists r[\"entity_id\"])\r\n |> filter(fn: (r) => r[\"_field\"] == \"state\")\r\n |> group(columns: [\"entity_id\"])\r\n |> first()\r\n |> keep(columns: [\"entity_id\", \"_time\"])\r\n |> rename(columns: {_time: \"first_time\"})\r\n |> group(columns: [])\r\n\r\nlast_times =\r\n from(bucket: \"ha\")\r\n |> range(start: -10y)\r\n |> filter(fn: (r) => exists r[\"entity_id\"])\r\n |> filter(fn: (r) => r[\"_field\"] == \"state\")\r\n |> group(columns: [\"entity_id\"])\r\n |> last()\r\n |> keep(columns: [\"entity_id\", \"_time\"])\r\n |> rename(columns: {_time: \"last_time\"})\r\n |> group(columns: [])\r\n\r\nwith_percent =\r\n counts\r\n |> map(fn: (r) => ({\r\n r with\r\n row_count: r._value,\r\n percent: 100.0 Database-data Effekt Elbilsladdning Energikostnad Energimängd Energipris General float(v: r._value) / float(v: total._value)\r\n }))\r\n |> keep(columns: [\"entity_id\", \"domain\", \"row_count\", \"percent\"]) // ← keep domain\r\n\r\njoin(\r\n tables: {\r\n a: join(\r\n tables: {base: with_percent, ft: first_times},\r\n on: [\"entity_id\"]\r\n ),\r\n lt: last_times\r\n },\r\n on: [\"entity_id\"]\r\n)\r\n |> keep(columns: [\"entity_id\", \"domain\", \"row_count\", \"percent\", \"first_time\", \"last_time\"])\r\n |> sort(columns: [\"row_count\"], desc: true)\r\n |> limit(n: 100)",
+          "refId": "A"
+        }
+      ],
+      "title": "InfluxDB - Topp 100 entities the last 10 years",
+      "transparent": true,
+      "type": "table"
+    }
+  ],
+  "refresh": "",
+  "schemaVersion": 35,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {
+    "hidden": true
+  },
+  "timezone": "",
+  "title": "InfluxDB - Top 100 entities the last 10 years",
+  "uid": "51RfVfuHz",
+  "version": 14,
+  "weekStart": ""
+}
